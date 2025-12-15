@@ -127,3 +127,73 @@
 {"event": "pick", "world_step": 39, "agent": "buyer", "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "ts": "2025-12-15T11:09:03.352681Z"}
 {"event": "pick", "world_step": 40, "agent": "buyer", "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "ts": "2025-12-15T11:09:03.353686Z"}
 {"event": "pick", "world_step": 51, "agent": "buyer", "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "remaining": 46.0, "ts": "2025-12-15T11:09:03.513267Z"}
+{"event": "pick", "world_step": 5, "agent": "buyer", "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "remaining": 111.5, "ts": "2025-12-15T11:52:31.452374Z"}
+{"event": "pick", "world_step": 6, "agent": "buyer", "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "remaining": 105.0, "ts": "2025-12-15T11:52:31.640672Z"}
+{"event": "pick", "world_step": 7, "agent": "buyer", "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "remaining": 97.5, "ts": "2025-12-15T11:52:31.843297Z"}
+{"event": "pick", "world_step": 8, "agent": "buyer", "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "remaining": 89.5, "ts": "2025-12-15T11:52:32.049219Z"}
+{"event": "pick", "world_step": 9, "agent": "buyer", "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "remaining": 85.5, "ts": "2025-12-15T11:52:32.253291Z"}
+{"event": "pick", "world_step": 16, "agent": "buyer", "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "remaining": 79.5, "ts": "2025-12-15T11:52:33.646866Z"}
+{"event": "pick", "world_step": 23, "agent": "buyer", "sku": "P037", "name": "Jabón de baño", "price": 6.5, "remaining": 73.0, "ts": "2025-12-15T11:52:35.054354Z"}
+{"event": "pick", "world_step": 30, "agent": "buyer", "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "remaining": 66.0, "ts": "2025-12-15T11:52:36.444578Z"}
+{"event": "pick", "world_step": 39, "agent": "buyer", "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "ts": "2025-12-15T11:52:38.247960Z"}
+{"event": "pick", "world_step": 40, "agent": "buyer", "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "ts": "2025-12-15T11:52:38.452956Z"}
+{"event": "pick", "world_step": 51, "agent": "buyer", "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "remaining": 46.0, "ts": "2025-12-15T11:52:40.643274Z"}
+{"event": "pick", "world_step": 67, "agent": "buyer", "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "remaining": 39.0, "ts": "2025-12-15T11:52:43.839409Z"}
+{"event": "pick", "world_step": 77, "agent": "buyer", "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "remaining": 32.0, "ts": "2025-12-15T11:52:45.854784Z"}
+{"event": "pick", "world_step": 79, "agent": "buyer", "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "remaining": 26.0, "ts": "2025-12-15T11:52:46.249167Z"}
+{"event": "pick", "world_step": 80, "agent": "buyer", "sku": "P050", "name": "Barra de granola", "price": 5.0, "remaining": 21.0, "ts": "2025-12-15T11:52:46.440013Z"}
+{"event": "pick", "world_step": 82, "agent": "buyer", "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "remaining": 13.5, "ts": "2025-12-15T11:52:46.847709Z"}
+{"event": "pick", "world_step": 115, "agent": "buyer", "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "remaining": 5.5, "ts": "2025-12-15T11:52:53.438822Z"}
+{"event": "scan", "world_step": 143, "agent": "cashier", "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "subtotal": 8.5, "ts": "2025-12-15T11:52:59.048472Z"}
+{"event": "scan", "world_step": 144, "agent": "cashier", "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "subtotal": 15.0, "ts": "2025-12-15T11:52:59.254319Z"}
+{"event": "scan", "world_step": 145, "agent": "cashier", "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "subtotal": 22.5, "ts": "2025-12-15T11:52:59.460776Z"}
+{"event": "scan", "world_step": 146, "agent": "cashier", "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "subtotal": 30.5, "ts": "2025-12-15T11:52:59.642689Z"}
+{"event": "scan", "world_step": 147, "agent": "cashier", "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "subtotal": 34.5, "ts": "2025-12-15T11:52:59.845240Z"}
+{"event": "scan", "world_step": 148, "agent": "cashier", "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "subtotal": 40.5, "ts": "2025-12-15T11:53:00.047091Z"}
+{"event": "scan", "world_step": 149, "agent": "cashier", "sku": "P037", "name": "Jabón de baño", "price": 6.5, "subtotal": 47.0, "ts": "2025-12-15T11:53:00.253199Z"}
+{"event": "scan", "world_step": 150, "agent": "cashier", "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "subtotal": 54.0, "ts": "2025-12-15T11:53:00.442515Z"}
+{"event": "scan", "world_step": 151, "agent": "cashier", "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "subtotal": 60.0, "ts": "2025-12-15T11:53:00.643571Z"}
+{"event": "scan", "world_step": 152, "agent": "cashier", "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "subtotal": 67.0, "ts": "2025-12-15T11:53:00.847567Z"}
+{"event": "scan", "world_step": 153, "agent": "cashier", "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "subtotal": 74.0, "ts": "2025-12-15T11:53:01.049902Z"}
+{"event": "scan", "world_step": 154, "agent": "cashier", "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "subtotal": 81.0, "ts": "2025-12-15T11:53:01.240737Z"}
+{"event": "scan", "world_step": 155, "agent": "cashier", "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "subtotal": 88.0, "ts": "2025-12-15T11:53:01.442558Z"}
+{"event": "scan", "world_step": 156, "agent": "cashier", "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "subtotal": 94.0, "ts": "2025-12-15T11:53:01.643781Z"}
+{"event": "scan", "world_step": 157, "agent": "cashier", "sku": "P050", "name": "Barra de granola", "price": 5.0, "subtotal": 99.0, "ts": "2025-12-15T11:53:01.846250Z"}
+{"event": "scan", "world_step": 158, "agent": "cashier", "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "subtotal": 106.5, "ts": "2025-12-15T11:53:02.049741Z"}
+{"event": "scan", "world_step": 159, "agent": "cashier", "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "subtotal": 114.5, "ts": "2025-12-15T11:53:02.253828Z"}
+{"event": "redeem", "world_step": 160, "agent": "cashier", "subtotal": 114.5, "voucher": 120.0, "redeemed": 114.5, "change_given": 5.5, "ts": "2025-12-15T11:53:02.439329Z"}
+{"event": "pick", "world_step": 5, "agent": "buyer", "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "remaining": 111.5, "ts": "2025-12-15T11:57:27.689371Z"}
+{"event": "pick", "world_step": 6, "agent": "buyer", "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "remaining": 105.0, "ts": "2025-12-15T11:57:27.888038Z"}
+{"event": "pick", "world_step": 7, "agent": "buyer", "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "remaining": 97.5, "ts": "2025-12-15T11:57:28.085985Z"}
+{"event": "pick", "world_step": 8, "agent": "buyer", "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "remaining": 89.5, "ts": "2025-12-15T11:57:28.287262Z"}
+{"event": "pick", "world_step": 9, "agent": "buyer", "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "remaining": 85.5, "ts": "2025-12-15T11:57:28.492770Z"}
+{"event": "pick", "world_step": 16, "agent": "buyer", "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "remaining": 79.5, "ts": "2025-12-15T11:57:29.886306Z"}
+{"event": "pick", "world_step": 23, "agent": "buyer", "sku": "P037", "name": "Jabón de baño", "price": 6.5, "remaining": 73.0, "ts": "2025-12-15T11:57:31.295693Z"}
+{"event": "pick", "world_step": 30, "agent": "buyer", "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "remaining": 66.0, "ts": "2025-12-15T11:57:32.689363Z"}
+{"event": "pick", "world_step": 39, "agent": "buyer", "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "ts": "2025-12-15T11:57:34.494503Z"}
+{"event": "pick", "world_step": 40, "agent": "buyer", "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "ts": "2025-12-15T11:57:34.695626Z"}
+{"event": "pick", "world_step": 51, "agent": "buyer", "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "remaining": 46.0, "ts": "2025-12-15T11:57:36.899232Z"}
+{"event": "pick", "world_step": 67, "agent": "buyer", "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "remaining": 39.0, "ts": "2025-12-15T11:57:40.090924Z"}
+{"event": "pick", "world_step": 77, "agent": "buyer", "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "remaining": 32.0, "ts": "2025-12-15T11:57:42.088208Z"}
+{"event": "pick", "world_step": 79, "agent": "buyer", "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "remaining": 26.0, "ts": "2025-12-15T11:57:42.499235Z"}
+{"event": "pick", "world_step": 80, "agent": "buyer", "sku": "P050", "name": "Barra de granola", "price": 5.0, "remaining": 21.0, "ts": "2025-12-15T11:57:42.689216Z"}
+{"event": "pick", "world_step": 82, "agent": "buyer", "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "remaining": 13.5, "ts": "2025-12-15T11:57:43.096552Z"}
+{"event": "pick", "world_step": 115, "agent": "buyer", "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "remaining": 5.5, "ts": "2025-12-15T11:57:49.695193Z"}
+{"event": "scan", "world_step": 143, "agent": "cashier", "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "subtotal": 8.5, "ts": "2025-12-15T11:57:55.288781Z"}
+{"event": "scan", "world_step": 144, "agent": "cashier", "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "subtotal": 15.0, "ts": "2025-12-15T11:57:55.491997Z"}
+{"event": "scan", "world_step": 145, "agent": "cashier", "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "subtotal": 22.5, "ts": "2025-12-15T11:57:55.686775Z"}
+{"event": "scan", "world_step": 146, "agent": "cashier", "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "subtotal": 30.5, "ts": "2025-12-15T11:57:55.886663Z"}
+{"event": "scan", "world_step": 147, "agent": "cashier", "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "subtotal": 34.5, "ts": "2025-12-15T11:57:56.093053Z"}
+{"event": "scan", "world_step": 148, "agent": "cashier", "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "subtotal": 40.5, "ts": "2025-12-15T11:57:56.287903Z"}
+{"event": "scan", "world_step": 149, "agent": "cashier", "sku": "P037", "name": "Jabón de baño", "price": 6.5, "subtotal": 47.0, "ts": "2025-12-15T11:57:56.485277Z"}
+{"event": "scan", "world_step": 150, "agent": "cashier", "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "subtotal": 54.0, "ts": "2025-12-15T11:57:56.688654Z"}
+{"event": "scan", "world_step": 151, "agent": "cashier", "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "subtotal": 60.0, "ts": "2025-12-15T11:57:56.888051Z"}
+{"event": "scan", "world_step": 152, "agent": "cashier", "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "subtotal": 67.0, "ts": "2025-12-15T11:57:57.099628Z"}
+{"event": "scan", "world_step": 153, "agent": "cashier", "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "subtotal": 74.0, "ts": "2025-12-15T11:57:57.285473Z"}
+{"event": "scan", "world_step": 154, "agent": "cashier", "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "subtotal": 81.0, "ts": "2025-12-15T11:57:57.486979Z"}
+{"event": "scan", "world_step": 155, "agent": "cashier", "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "subtotal": 88.0, "ts": "2025-12-15T11:57:57.685066Z"}
+{"event": "scan", "world_step": 156, "agent": "cashier", "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "subtotal": 94.0, "ts": "2025-12-15T11:57:57.886453Z"}
+{"event": "scan", "world_step": 157, "agent": "cashier", "sku": "P050", "name": "Barra de granola", "price": 5.0, "subtotal": 99.0, "ts": "2025-12-15T11:57:58.085687Z"}
+{"event": "scan", "world_step": 158, "agent": "cashier", "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "subtotal": 106.5, "ts": "2025-12-15T11:57:58.288037Z"}
+{"event": "scan", "world_step": 159, "agent": "cashier", "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "subtotal": 114.5, "ts": "2025-12-15T11:57:58.487953Z"}
+{"event": "redeem", "world_step": 160, "agent": "cashier", "subtotal": 114.5, "voucher": 120.0, "redeemed": 114.5, "change_given": 5.5, "ts": "2025-12-15T11:57:58.685207Z"}

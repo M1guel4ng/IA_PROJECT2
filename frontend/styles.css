@@ -1,3 +1,4 @@
+/* styles.css (CLARO) */
 :root{
   --bg:#f6f7fb;
   --card:#ffffff;
@@ -88,13 +89,6 @@ select{min-width:150px}
 .stageCard{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .stageHead{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 14px;border-bottom:1px solid var(--border)}
 .stageTitle{font-weight:900;letter-spacing:.2px}
-.pillRow{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.pill{
-  font-size:12px;color:var(--text);
-  padding:6px 10px;border-radius:999px;border:1px solid var(--border);
-  background:rgba(59,130,246,.10);
-}
-.pill.soft{background:rgba(15,23,42,.02);color:var(--muted)}
 
 .legend{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
@@ -132,6 +126,7 @@ select{min-width:150px}
   padding:10px;max-height:260px;overflow:auto;
 }
 
+/* Checkout */
 .checkoutLayout{
   display:grid;
   grid-template-columns: 1fr 1fr;
@@ -182,6 +177,7 @@ select{min-width:150px}
   background:rgba(59,130,246,.85);
 }
 
+/* Lists */
 .fancyList .row{
   display:flex;
   justify-content:space-between;
@@ -199,19 +195,6 @@ select{min-width:150px}
 .fancyList .sku{font-weight:900}
 .fancyList .name{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:320px}
 .fancyList .price{font-weight:900}
-.fancyList .badge{
-  font-size:11px;
-  padding:4px 8px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:rgba(34,197,94,.10);
-  color:#14532d;
-  margin-left:8px;
-}
-.fancyList .badge.pending{
-  background:rgba(245,158,11,.10);
-  color:#7c2d12;
-}
 
 .timeline .item{
   display:flex;
@@ -232,33 +215,15 @@ select{min-width:150px}
 .timeline .line1{font-weight:900}
 .timeline .line2{color:var(--muted);font-size:12px;margin-top:2px}
 
-@media (max-width:1100px){
-  .layout{grid-template-columns:1fr}
-  .controls{justify-content:flex-start}
-}
-@media (max-width:860px){
-  .checkoutLayout{grid-template-columns:1fr}
-  .checkoutWide{grid-column:1}
-  .moneyGrid{grid-template-columns:1fr}
-}
-
-/* -------- Branch selector -------- */
-.branchLayout{
-  grid-template-columns: 1fr;
-}
-
-.branchCard{
-  max-width: 980px;
-  margin: 0 auto;
-}
-
+/* Branch selector */
+.branchLayout{grid-template-columns: 1fr;}
+.branchCard{max-width: 980px;margin: 0 auto;}
 .branchGrid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
   margin-top: 10px;
 }
-
 .branchTile{
   text-align:left;
   border:1px solid var(--border);
@@ -269,26 +234,20 @@ select{min-width:150px}
   cursor:pointer;
   transition: transform .08s ease, box-shadow .08s ease;
 }
-
 .branchTile:hover{
   transform: translateY(-1px);
   box-shadow: 0 12px 26px rgba(15,23,42,.08);
 }
+.branchTitle{font-weight: 800;font-size: 14px;}
+.branchSub{margin-top: 4px;color: var(--muted);font-size: 12px;line-height: 1.25;}
+.divider{height: 1px;background: var(--border);margin: 18px 0;}
 
-.branchTitle{
-  font-weight: 800;
-  font-size: 14px;
+@media (max-width:1100px){
+  .layout{grid-template-columns:1fr}
+  .controls{justify-content:flex-start}
 }
-
-.branchSub{
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.25;
-}
-
-.divider{
-  height: 1px;
-  background: var(--border);
-  margin: 18px 0;
+@media (max-width:860px){
+  .checkoutLayout{grid-template-columns:1fr}
+  .checkoutWide{grid-column:1}
+  .moneyGrid{grid-template-columns:1fr}
 }
