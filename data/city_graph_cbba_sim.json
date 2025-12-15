@@ -1,0 +1,2586 @@
+{
+  "meta": {
+    "city": "Cochabamba (simulado realista)",
+    "unit": "km",
+    "grid": {
+      "width": 11,
+      "height": 11,
+      "dx_km": 0.22,
+      "dy_km": 0.22
+    },
+    "notes": [
+      "Coordenadas x,y son relativas (no lat/lon).",
+      "distance en km; cost es distance ajustado (arteriales más 'rápidos').",
+      "Barrera tipo río/avenida en y=5, con puentes en x=3 y x=7."
+    ]
+  },
+  "nodes": [
+    {
+      "id": "ix_0_0",
+      "kind": "intersection",
+      "name": "Intersección 0,0",
+      "x": 0,
+      "y": 0
+    },
+    {
+      "id": "ix_1_0",
+      "kind": "intersection",
+      "name": "Intersección 1,0",
+      "x": 1,
+      "y": 0
+    },
+    {
+      "id": "ix_2_0",
+      "kind": "intersection",
+      "name": "Intersección 2,0",
+      "x": 2,
+      "y": 0
+    },
+    {
+      "id": "ix_3_0",
+      "kind": "intersection",
+      "name": "Intersección 3,0",
+      "x": 3,
+      "y": 0
+    },
+    {
+      "id": "ix_4_0",
+      "kind": "intersection",
+      "name": "Intersección 4,0",
+      "x": 4,
+      "y": 0
+    },
+    {
+      "id": "ix_5_0",
+      "kind": "intersection",
+      "name": "Intersección 5,0",
+      "x": 5,
+      "y": 0
+    },
+    {
+      "id": "ix_6_0",
+      "kind": "intersection",
+      "name": "Intersección 6,0",
+      "x": 6,
+      "y": 0
+    },
+    {
+      "id": "ix_7_0",
+      "kind": "intersection",
+      "name": "Intersección 7,0",
+      "x": 7,
+      "y": 0
+    },
+    {
+      "id": "ix_8_0",
+      "kind": "intersection",
+      "name": "Intersección 8,0",
+      "x": 8,
+      "y": 0
+    },
+    {
+      "id": "ix_9_0",
+      "kind": "intersection",
+      "name": "Intersección 9,0",
+      "x": 9,
+      "y": 0
+    },
+    {
+      "id": "ix_10_0",
+      "kind": "intersection",
+      "name": "Intersección 10,0",
+      "x": 10,
+      "y": 0
+    },
+    {
+      "id": "ix_0_1",
+      "kind": "intersection",
+      "name": "Intersección 0,1",
+      "x": 0,
+      "y": 1
+    },
+    {
+      "id": "ix_1_1",
+      "kind": "intersection",
+      "name": "Intersección 1,1",
+      "x": 1,
+      "y": 1
+    },
+    {
+      "id": "ix_2_1",
+      "kind": "intersection",
+      "name": "Intersección 2,1",
+      "x": 2,
+      "y": 1
+    },
+    {
+      "id": "ix_3_1",
+      "kind": "intersection",
+      "name": "Intersección 3,1",
+      "x": 3,
+      "y": 1
+    },
+    {
+      "id": "ix_4_1",
+      "kind": "intersection",
+      "name": "Intersección 4,1",
+      "x": 4,
+      "y": 1
+    },
+    {
+      "id": "ix_5_1",
+      "kind": "intersection",
+      "name": "Intersección 5,1",
+      "x": 5,
+      "y": 1
+    },
+    {
+      "id": "ix_6_1",
+      "kind": "intersection",
+      "name": "Intersección 6,1",
+      "x": 6,
+      "y": 1
+    },
+    {
+      "id": "ix_7_1",
+      "kind": "intersection",
+      "name": "Intersección 7,1",
+      "x": 7,
+      "y": 1
+    },
+    {
+      "id": "ix_8_1",
+      "kind": "intersection",
+      "name": "Intersección 8,1",
+      "x": 8,
+      "y": 1
+    },
+    {
+      "id": "ix_9_1",
+      "kind": "intersection",
+      "name": "Intersección 9,1",
+      "x": 9,
+      "y": 1
+    },
+    {
+      "id": "ix_10_1",
+      "kind": "intersection",
+      "name": "Intersección 10,1",
+      "x": 10,
+      "y": 1
+    },
+    {
+      "id": "ix_0_2",
+      "kind": "intersection",
+      "name": "Intersección 0,2",
+      "x": 0,
+      "y": 2
+    },
+    {
+      "id": "ix_1_2",
+      "kind": "intersection",
+      "name": "Intersección 1,2",
+      "x": 1,
+      "y": 2
+    },
+    {
+      "id": "ix_2_2",
+      "kind": "intersection",
+      "name": "Intersección 2,2",
+      "x": 2,
+      "y": 2
+    },
+    {
+      "id": "ix_3_2",
+      "kind": "intersection",
+      "name": "Intersección 3,2",
+      "x": 3,
+      "y": 2
+    },
+    {
+      "id": "ix_4_2",
+      "kind": "intersection",
+      "name": "Intersección 4,2",
+      "x": 4,
+      "y": 2
+    },
+    {
+      "id": "ix_5_2",
+      "kind": "intersection",
+      "name": "Intersección 5,2",
+      "x": 5,
+      "y": 2
+    },
+    {
+      "id": "ix_6_2",
+      "kind": "intersection",
+      "name": "Intersección 6,2",
+      "x": 6,
+      "y": 2
+    },
+    {
+      "id": "ix_7_2",
+      "kind": "intersection",
+      "name": "Intersección 7,2",
+      "x": 7,
+      "y": 2
+    },
+    {
+      "id": "ix_8_2",
+      "kind": "intersection",
+      "name": "Intersección 8,2",
+      "x": 8,
+      "y": 2
+    },
+    {
+      "id": "ix_9_2",
+      "kind": "intersection",
+      "name": "Intersección 9,2",
+      "x": 9,
+      "y": 2
+    },
+    {
+      "id": "ix_10_2",
+      "kind": "intersection",
+      "name": "Intersección 10,2",
+      "x": 10,
+      "y": 2
+    },
+    {
+      "id": "ix_0_3",
+      "kind": "intersection",
+      "name": "Intersección 0,3",
+      "x": 0,
+      "y": 3
+    },
+    {
+      "id": "ix_1_3",
+      "kind": "intersection",
+      "name": "Intersección 1,3",
+      "x": 1,
+      "y": 3
+    },
+    {
+      "id": "ix_2_3",
+      "kind": "intersection",
+      "name": "Intersección 2,3",
+      "x": 2,
+      "y": 3
+    },
+    {
+      "id": "ix_3_3",
+      "kind": "intersection",
+      "name": "Intersección 3,3",
+      "x": 3,
+      "y": 3
+    },
+    {
+      "id": "ix_4_3",
+      "kind": "intersection",
+      "name": "Intersección 4,3",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "id": "ix_5_3",
+      "kind": "intersection",
+      "name": "Intersección 5,3",
+      "x": 5,
+      "y": 3
+    },
+    {
+      "id": "ix_6_3",
+      "kind": "intersection",
+      "name": "Intersección 6,3",
+      "x": 6,
+      "y": 3
+    },
+    {
+      "id": "ix_7_3",
+      "kind": "intersection",
+      "name": "Intersección 7,3",
+      "x": 7,
+      "y": 3
+    },
+    {
+      "id": "ix_8_3",
+      "kind": "intersection",
+      "name": "Intersección 8,3",
+      "x": 8,
+      "y": 3
+    },
+    {
+      "id": "ix_9_3",
+      "kind": "intersection",
+      "name": "Intersección 9,3",
+      "x": 9,
+      "y": 3
+    },
+    {
+      "id": "ix_10_3",
+      "kind": "intersection",
+      "name": "Intersección 10,3",
+      "x": 10,
+      "y": 3
+    },
+    {
+      "id": "ix_0_4",
+      "kind": "intersection",
+      "name": "Intersección 0,4",
+      "x": 0,
+      "y": 4
+    },
+    {
+      "id": "ix_1_4",
+      "kind": "intersection",
+      "name": "Intersección 1,4",
+      "x": 1,
+      "y": 4
+    },
+    {
+      "id": "ix_2_4",
+      "kind": "intersection",
+      "name": "Intersección 2,4",
+      "x": 2,
+      "y": 4
+    },
+    {
+      "id": "ix_3_4",
+      "kind": "intersection",
+      "name": "Intersección 3,4",
+      "x": 3,
+      "y": 4
+    },
+    {
+      "id": "ix_4_4",
+      "kind": "intersection",
+      "name": "Intersección 4,4",
+      "x": 4,
+      "y": 4
+    },
+    {
+      "id": "ix_5_4",
+      "kind": "intersection",
+      "name": "Intersección 5,4",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "id": "ix_6_4",
+      "kind": "intersection",
+      "name": "Intersección 6,4",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "id": "ix_7_4",
+      "kind": "intersection",
+      "name": "Intersección 7,4",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "id": "ix_8_4",
+      "kind": "intersection",
+      "name": "Intersección 8,4",
+      "x": 8,
+      "y": 4
+    },
+    {
+      "id": "ix_9_4",
+      "kind": "intersection",
+      "name": "Intersección 9,4",
+      "x": 9,
+      "y": 4
+    },
+    {
+      "id": "ix_10_4",
+      "kind": "intersection",
+      "name": "Intersección 10,4",
+      "x": 10,
+      "y": 4
+    },
+    {
+      "id": "ix_0_5",
+      "kind": "intersection",
+      "name": "Intersección 0,5",
+      "x": 0,
+      "y": 5
+    },
+    {
+      "id": "ix_1_5",
+      "kind": "intersection",
+      "name": "Intersección 1,5",
+      "x": 1,
+      "y": 5
+    },
+    {
+      "id": "ix_2_5",
+      "kind": "intersection",
+      "name": "Intersección 2,5",
+      "x": 2,
+      "y": 5
+    },
+    {
+      "id": "ix_3_5",
+      "kind": "intersection",
+      "name": "Intersección 3,5",
+      "x": 3,
+      "y": 5
+    },
+    {
+      "id": "ix_4_5",
+      "kind": "intersection",
+      "name": "Intersección 4,5",
+      "x": 4,
+      "y": 5
+    },
+    {
+      "id": "ix_5_5",
+      "kind": "intersection",
+      "name": "Intersección 5,5",
+      "x": 5,
+      "y": 5
+    },
+    {
+      "id": "ix_6_5",
+      "kind": "intersection",
+      "name": "Intersección 6,5",
+      "x": 6,
+      "y": 5
+    },
+    {
+      "id": "ix_7_5",
+      "kind": "intersection",
+      "name": "Intersección 7,5",
+      "x": 7,
+      "y": 5
+    },
+    {
+      "id": "ix_8_5",
+      "kind": "intersection",
+      "name": "Intersección 8,5",
+      "x": 8,
+      "y": 5
+    },
+    {
+      "id": "ix_9_5",
+      "kind": "intersection",
+      "name": "Intersección 9,5",
+      "x": 9,
+      "y": 5
+    },
+    {
+      "id": "ix_10_5",
+      "kind": "intersection",
+      "name": "Intersección 10,5",
+      "x": 10,
+      "y": 5
+    },
+    {
+      "id": "ix_0_6",
+      "kind": "intersection",
+      "name": "Intersección 0,6",
+      "x": 0,
+      "y": 6
+    },
+    {
+      "id": "ix_1_6",
+      "kind": "intersection",
+      "name": "Intersección 1,6",
+      "x": 1,
+      "y": 6
+    },
+    {
+      "id": "ix_2_6",
+      "kind": "intersection",
+      "name": "Intersección 2,6",
+      "x": 2,
+      "y": 6
+    },
+    {
+      "id": "ix_3_6",
+      "kind": "intersection",
+      "name": "Intersección 3,6",
+      "x": 3,
+      "y": 6
+    },
+    {
+      "id": "ix_4_6",
+      "kind": "intersection",
+      "name": "Intersección 4,6",
+      "x": 4,
+      "y": 6
+    },
+    {
+      "id": "ix_5_6",
+      "kind": "intersection",
+      "name": "Intersección 5,6",
+      "x": 5,
+      "y": 6
+    },
+    {
+      "id": "ix_6_6",
+      "kind": "intersection",
+      "name": "Intersección 6,6",
+      "x": 6,
+      "y": 6
+    },
+    {
+      "id": "ix_7_6",
+      "kind": "intersection",
+      "name": "Intersección 7,6",
+      "x": 7,
+      "y": 6
+    },
+    {
+      "id": "ix_8_6",
+      "kind": "intersection",
+      "name": "Intersección 8,6",
+      "x": 8,
+      "y": 6
+    },
+    {
+      "id": "ix_9_6",
+      "kind": "intersection",
+      "name": "Intersección 9,6",
+      "x": 9,
+      "y": 6
+    },
+    {
+      "id": "ix_10_6",
+      "kind": "intersection",
+      "name": "Intersección 10,6",
+      "x": 10,
+      "y": 6
+    },
+    {
+      "id": "ix_0_7",
+      "kind": "intersection",
+      "name": "Intersección 0,7",
+      "x": 0,
+      "y": 7
+    },
+    {
+      "id": "ix_1_7",
+      "kind": "intersection",
+      "name": "Intersección 1,7",
+      "x": 1,
+      "y": 7
+    },
+    {
+      "id": "ix_2_7",
+      "kind": "intersection",
+      "name": "Intersección 2,7",
+      "x": 2,
+      "y": 7
+    },
+    {
+      "id": "ix_3_7",
+      "kind": "intersection",
+      "name": "Intersección 3,7",
+      "x": 3,
+      "y": 7
+    },
+    {
+      "id": "ix_4_7",
+      "kind": "intersection",
+      "name": "Intersección 4,7",
+      "x": 4,
+      "y": 7
+    },
+    {
+      "id": "ix_5_7",
+      "kind": "intersection",
+      "name": "Intersección 5,7",
+      "x": 5,
+      "y": 7
+    },
+    {
+      "id": "ix_6_7",
+      "kind": "intersection",
+      "name": "Intersección 6,7",
+      "x": 6,
+      "y": 7
+    },
+    {
+      "id": "ix_7_7",
+      "kind": "intersection",
+      "name": "Intersección 7,7",
+      "x": 7,
+      "y": 7
+    },
+    {
+      "id": "ix_8_7",
+      "kind": "intersection",
+      "name": "Intersección 8,7",
+      "x": 8,
+      "y": 7
+    },
+    {
+      "id": "ix_9_7",
+      "kind": "intersection",
+      "name": "Intersección 9,7",
+      "x": 9,
+      "y": 7
+    },
+    {
+      "id": "ix_10_7",
+      "kind": "intersection",
+      "name": "Intersección 10,7",
+      "x": 10,
+      "y": 7
+    },
+    {
+      "id": "ix_0_8",
+      "kind": "intersection",
+      "name": "Intersección 0,8",
+      "x": 0,
+      "y": 8
+    },
+    {
+      "id": "ix_1_8",
+      "kind": "intersection",
+      "name": "Intersección 1,8",
+      "x": 1,
+      "y": 8
+    },
+    {
+      "id": "ix_2_8",
+      "kind": "intersection",
+      "name": "Intersección 2,8",
+      "x": 2,
+      "y": 8
+    },
+    {
+      "id": "ix_3_8",
+      "kind": "intersection",
+      "name": "Intersección 3,8",
+      "x": 3,
+      "y": 8
+    },
+    {
+      "id": "ix_4_8",
+      "kind": "intersection",
+      "name": "Intersección 4,8",
+      "x": 4,
+      "y": 8
+    },
+    {
+      "id": "ix_5_8",
+      "kind": "intersection",
+      "name": "Intersección 5,8",
+      "x": 5,
+      "y": 8
+    },
+    {
+      "id": "ix_6_8",
+      "kind": "intersection",
+      "name": "Intersección 6,8",
+      "x": 6,
+      "y": 8
+    },
+    {
+      "id": "ix_7_8",
+      "kind": "intersection",
+      "name": "Intersección 7,8",
+      "x": 7,
+      "y": 8
+    },
+    {
+      "id": "ix_8_8",
+      "kind": "intersection",
+      "name": "Intersección 8,8",
+      "x": 8,
+      "y": 8
+    },
+    {
+      "id": "ix_9_8",
+      "kind": "intersection",
+      "name": "Intersección 9,8",
+      "x": 9,
+      "y": 8
+    },
+    {
+      "id": "ix_10_8",
+      "kind": "intersection",
+      "name": "Intersección 10,8",
+      "x": 10,
+      "y": 8
+    },
+    {
+      "id": "ix_0_9",
+      "kind": "intersection",
+      "name": "Intersección 0,9",
+      "x": 0,
+      "y": 9
+    },
+    {
+      "id": "ix_1_9",
+      "kind": "intersection",
+      "name": "Intersección 1,9",
+      "x": 1,
+      "y": 9
+    },
+    {
+      "id": "ix_2_9",
+      "kind": "intersection",
+      "name": "Intersección 2,9",
+      "x": 2,
+      "y": 9
+    },
+    {
+      "id": "ix_3_9",
+      "kind": "intersection",
+      "name": "Intersección 3,9",
+      "x": 3,
+      "y": 9
+    },
+    {
+      "id": "ix_4_9",
+      "kind": "intersection",
+      "name": "Intersección 4,9",
+      "x": 4,
+      "y": 9
+    },
+    {
+      "id": "ix_5_9",
+      "kind": "intersection",
+      "name": "Intersección 5,9",
+      "x": 5,
+      "y": 9
+    },
+    {
+      "id": "ix_6_9",
+      "kind": "intersection",
+      "name": "Intersección 6,9",
+      "x": 6,
+      "y": 9
+    },
+    {
+      "id": "ix_7_9",
+      "kind": "intersection",
+      "name": "Intersección 7,9",
+      "x": 7,
+      "y": 9
+    },
+    {
+      "id": "ix_8_9",
+      "kind": "intersection",
+      "name": "Intersección 8,9",
+      "x": 8,
+      "y": 9
+    },
+    {
+      "id": "ix_9_9",
+      "kind": "intersection",
+      "name": "Intersección 9,9",
+      "x": 9,
+      "y": 9
+    },
+    {
+      "id": "ix_10_9",
+      "kind": "intersection",
+      "name": "Intersección 10,9",
+      "x": 10,
+      "y": 9
+    },
+    {
+      "id": "ix_0_10",
+      "kind": "intersection",
+      "name": "Intersección 0,10",
+      "x": 0,
+      "y": 10
+    },
+    {
+      "id": "ix_1_10",
+      "kind": "intersection",
+      "name": "Intersección 1,10",
+      "x": 1,
+      "y": 10
+    },
+    {
+      "id": "ix_2_10",
+      "kind": "intersection",
+      "name": "Intersección 2,10",
+      "x": 2,
+      "y": 10
+    },
+    {
+      "id": "ix_3_10",
+      "kind": "intersection",
+      "name": "Intersección 3,10",
+      "x": 3,
+      "y": 10
+    },
+    {
+      "id": "ix_4_10",
+      "kind": "intersection",
+      "name": "Intersección 4,10",
+      "x": 4,
+      "y": 10
+    },
+    {
+      "id": "ix_5_10",
+      "kind": "intersection",
+      "name": "Intersección 5,10",
+      "x": 5,
+      "y": 10
+    },
+    {
+      "id": "ix_6_10",
+      "kind": "intersection",
+      "name": "Intersección 6,10",
+      "x": 6,
+      "y": 10
+    },
+    {
+      "id": "ix_7_10",
+      "kind": "intersection",
+      "name": "Intersección 7,10",
+      "x": 7,
+      "y": 10
+    },
+    {
+      "id": "ix_8_10",
+      "kind": "intersection",
+      "name": "Intersección 8,10",
+      "x": 8,
+      "y": 10
+    },
+    {
+      "id": "ix_9_10",
+      "kind": "intersection",
+      "name": "Intersección 9,10",
+      "x": 9,
+      "y": 10
+    },
+    {
+      "id": "ix_10_10",
+      "kind": "intersection",
+      "name": "Intersección 10,10",
+      "x": 10,
+      "y": 10
+    },
+    {
+      "id": "taxi_terminal",
+      "kind": "taxi_stand",
+      "name": "Parada Taxi Terminal",
+      "x": 5.15,
+      "y": 6.15
+    },
+    {
+      "id": "taxi_quillacollo",
+      "kind": "taxi_stand",
+      "name": "Parada Taxi Quillacollo",
+      "x": 1.15,
+      "y": 5.15
+    },
+    {
+      "id": "home_1",
+      "kind": "home",
+      "name": "Casa #1",
+      "x": 2.15,
+      "y": 9.15
+    },
+    {
+      "id": "home_2",
+      "kind": "home",
+      "name": "Casa #2",
+      "x": 8.15,
+      "y": 9.15
+    },
+    {
+      "id": "home_3",
+      "kind": "home",
+      "name": "Casa #3",
+      "x": 9.15,
+      "y": 7.15
+    },
+    {
+      "id": "home_4",
+      "kind": "home",
+      "name": "Casa #4",
+      "x": 1.15,
+      "y": 8.15
+    },
+    {
+      "id": "home_5",
+      "kind": "home",
+      "name": "Casa #5",
+      "x": 0.15,
+      "y": 3.15
+    },
+    {
+      "id": "home_6",
+      "kind": "home",
+      "name": "Casa #6",
+      "x": 3.15,
+      "y": 1.15
+    },
+    {
+      "id": "home_7",
+      "kind": "home",
+      "name": "Casa #7",
+      "x": 10.15,
+      "y": 2.15
+    },
+    {
+      "id": "home_8",
+      "kind": "home",
+      "name": "Casa #8",
+      "x": 7.15,
+      "y": 0.15
+    },
+    {
+      "id": "store_prado",
+      "kind": "store",
+      "name": "Hipermaxi El Prado",
+      "x": 6.15,
+      "y": 6.15
+    },
+    {
+      "id": "store_recoleta",
+      "kind": "store",
+      "name": "Hipermaxi Recoleta",
+      "x": 4.15,
+      "y": 8.15
+    },
+    {
+      "id": "store_blanco_galindo",
+      "kind": "store",
+      "name": "Hipermaxi Blanco Galindo",
+      "x": 0.15,
+      "y": 5.15
+    },
+    {
+      "id": "store_circunvalacion",
+      "kind": "store",
+      "name": "Hipermaxi Circunvalación",
+      "x": 9.15,
+      "y": 6.15
+    },
+    {
+      "id": "store_sacaba",
+      "kind": "store",
+      "name": "Hipermaxi Sacaba",
+      "x": 10.15,
+      "y": 5.15
+    },
+    {
+      "id": "store_zona_sur",
+      "kind": "store",
+      "name": "Hipermaxi Zona Sur",
+      "x": 6.15,
+      "y": 1.15
+    }
+  ],
+  "edges": [
+    {
+      "a": "ix_0_0",
+      "b": "ix_1_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_0",
+      "b": "ix_0_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_0",
+      "b": "ix_2_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_0",
+      "b": "ix_1_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_0",
+      "b": "ix_3_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_0",
+      "b": "ix_2_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_0",
+      "b": "ix_4_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_0",
+      "b": "ix_3_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_0",
+      "b": "ix_5_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_0",
+      "b": "ix_4_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_0",
+      "b": "ix_6_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_0",
+      "b": "ix_5_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_0",
+      "b": "ix_7_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_0",
+      "b": "ix_6_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_0",
+      "b": "ix_8_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_0",
+      "b": "ix_7_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_0",
+      "b": "ix_9_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_0",
+      "b": "ix_8_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_0",
+      "b": "ix_10_0",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_0",
+      "b": "ix_9_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_0",
+      "b": "ix_10_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_1",
+      "b": "ix_1_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_1",
+      "b": "ix_0_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_1",
+      "b": "ix_2_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_1",
+      "b": "ix_1_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_1",
+      "b": "ix_3_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_1",
+      "b": "ix_2_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_1",
+      "b": "ix_4_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_1",
+      "b": "ix_3_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_1",
+      "b": "ix_5_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_1",
+      "b": "ix_4_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_1",
+      "b": "ix_6_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_1",
+      "b": "ix_5_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_1",
+      "b": "ix_7_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_1",
+      "b": "ix_6_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_1",
+      "b": "ix_8_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_1",
+      "b": "ix_7_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_1",
+      "b": "ix_9_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_1",
+      "b": "ix_8_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_1",
+      "b": "ix_10_1",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_1",
+      "b": "ix_9_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_1",
+      "b": "ix_10_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_2",
+      "b": "ix_1_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_2",
+      "b": "ix_0_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_2",
+      "b": "ix_2_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_2",
+      "b": "ix_1_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_2",
+      "b": "ix_3_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_2",
+      "b": "ix_2_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_2",
+      "b": "ix_4_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_2",
+      "b": "ix_3_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_2",
+      "b": "ix_5_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_2",
+      "b": "ix_4_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_2",
+      "b": "ix_6_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_2",
+      "b": "ix_5_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_2",
+      "b": "ix_7_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_2",
+      "b": "ix_6_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_2",
+      "b": "ix_8_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_2",
+      "b": "ix_7_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_2",
+      "b": "ix_9_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_2",
+      "b": "ix_8_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_2",
+      "b": "ix_10_2",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_2",
+      "b": "ix_9_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_2",
+      "b": "ix_10_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_3",
+      "b": "ix_1_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_3",
+      "b": "ix_0_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_3",
+      "b": "ix_2_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_3",
+      "b": "ix_1_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_3",
+      "b": "ix_3_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_3",
+      "b": "ix_2_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_3",
+      "b": "ix_4_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_3",
+      "b": "ix_3_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_3",
+      "b": "ix_5_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_3",
+      "b": "ix_4_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_3",
+      "b": "ix_6_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_3",
+      "b": "ix_5_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_3",
+      "b": "ix_7_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_3",
+      "b": "ix_6_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_3",
+      "b": "ix_8_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_3",
+      "b": "ix_7_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_3",
+      "b": "ix_9_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_3",
+      "b": "ix_8_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_3",
+      "b": "ix_10_3",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_3",
+      "b": "ix_9_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_3",
+      "b": "ix_10_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_4",
+      "b": "ix_1_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_4",
+      "b": "ix_0_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_4",
+      "b": "ix_2_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_4",
+      "b": "ix_1_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_4",
+      "b": "ix_3_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_4",
+      "b": "ix_4_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_4",
+      "b": "ix_3_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_4",
+      "b": "ix_5_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_4",
+      "b": "ix_6_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_4",
+      "b": "ix_7_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_4",
+      "b": "ix_8_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_4",
+      "b": "ix_7_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_4",
+      "b": "ix_9_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_4",
+      "b": "ix_10_4",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_5",
+      "b": "ix_1_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_5",
+      "b": "ix_0_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_5",
+      "b": "ix_2_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_5",
+      "b": "ix_1_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_5",
+      "b": "ix_3_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_5",
+      "b": "ix_2_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_5",
+      "b": "ix_4_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_5",
+      "b": "ix_3_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_5",
+      "b": "ix_5_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_5",
+      "b": "ix_4_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_5",
+      "b": "ix_6_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_5",
+      "b": "ix_5_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_5",
+      "b": "ix_7_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_5",
+      "b": "ix_6_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_5",
+      "b": "ix_8_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_5",
+      "b": "ix_7_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_5",
+      "b": "ix_9_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_5",
+      "b": "ix_8_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_5",
+      "b": "ix_10_5",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_5",
+      "b": "ix_9_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_5",
+      "b": "ix_10_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_6",
+      "b": "ix_1_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_6",
+      "b": "ix_0_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_6",
+      "b": "ix_2_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_6",
+      "b": "ix_1_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_6",
+      "b": "ix_3_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_6",
+      "b": "ix_2_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_6",
+      "b": "ix_4_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_6",
+      "b": "ix_3_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_6",
+      "b": "ix_5_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_6",
+      "b": "ix_4_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_6",
+      "b": "ix_6_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_6",
+      "b": "ix_5_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_6",
+      "b": "ix_7_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_6",
+      "b": "ix_6_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_6",
+      "b": "ix_8_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_6",
+      "b": "ix_7_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_6",
+      "b": "ix_9_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_6",
+      "b": "ix_8_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_6",
+      "b": "ix_10_6",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_6",
+      "b": "ix_9_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_6",
+      "b": "ix_10_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_7",
+      "b": "ix_1_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_7",
+      "b": "ix_0_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_7",
+      "b": "ix_2_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_7",
+      "b": "ix_1_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_7",
+      "b": "ix_3_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_7",
+      "b": "ix_2_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_7",
+      "b": "ix_4_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_7",
+      "b": "ix_3_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_7",
+      "b": "ix_5_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_7",
+      "b": "ix_4_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_7",
+      "b": "ix_6_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_7",
+      "b": "ix_5_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_7",
+      "b": "ix_7_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_7",
+      "b": "ix_6_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_7",
+      "b": "ix_8_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_7",
+      "b": "ix_7_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_7",
+      "b": "ix_9_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_7",
+      "b": "ix_8_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_7",
+      "b": "ix_10_7",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_7",
+      "b": "ix_9_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_7",
+      "b": "ix_10_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_8",
+      "b": "ix_1_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_8",
+      "b": "ix_0_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_8",
+      "b": "ix_2_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_8",
+      "b": "ix_1_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_8",
+      "b": "ix_3_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_8",
+      "b": "ix_2_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_8",
+      "b": "ix_4_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_8",
+      "b": "ix_3_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_8",
+      "b": "ix_5_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_8",
+      "b": "ix_4_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_8",
+      "b": "ix_6_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_8",
+      "b": "ix_5_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_8",
+      "b": "ix_7_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_8",
+      "b": "ix_6_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_8",
+      "b": "ix_8_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_8",
+      "b": "ix_7_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_8",
+      "b": "ix_9_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_8",
+      "b": "ix_8_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_8",
+      "b": "ix_10_8",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_8",
+      "b": "ix_9_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_8",
+      "b": "ix_10_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_9",
+      "b": "ix_1_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_9",
+      "b": "ix_0_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_9",
+      "b": "ix_2_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_9",
+      "b": "ix_1_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_9",
+      "b": "ix_3_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_9",
+      "b": "ix_2_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_9",
+      "b": "ix_4_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_9",
+      "b": "ix_3_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_9",
+      "b": "ix_5_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_9",
+      "b": "ix_4_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_9",
+      "b": "ix_6_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_9",
+      "b": "ix_5_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_9",
+      "b": "ix_7_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_9",
+      "b": "ix_6_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_9",
+      "b": "ix_8_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_9",
+      "b": "ix_7_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_9",
+      "b": "ix_9_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_9",
+      "b": "ix_8_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_9",
+      "b": "ix_10_9",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_9",
+      "b": "ix_9_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_10_9",
+      "b": "ix_10_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_10",
+      "b": "ix_1_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_1_10",
+      "b": "ix_2_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_2_10",
+      "b": "ix_3_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_3_10",
+      "b": "ix_4_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_4_10",
+      "b": "ix_5_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_5_10",
+      "b": "ix_6_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_6_10",
+      "b": "ix_7_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_7_10",
+      "b": "ix_8_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_8_10",
+      "b": "ix_9_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_9_10",
+      "b": "ix_10_10",
+      "distance": 0.22,
+      "cost": 0.22
+    },
+    {
+      "a": "ix_0_5",
+      "b": "ix_1_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_1_5",
+      "b": "ix_2_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_2_5",
+      "b": "ix_3_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_3_5",
+      "b": "ix_4_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_4_5",
+      "b": "ix_5_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_5_5",
+      "b": "ix_6_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_6_5",
+      "b": "ix_7_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_7_5",
+      "b": "ix_8_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_8_5",
+      "b": "ix_9_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_9_5",
+      "b": "ix_10_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal E-O"
+    },
+    {
+      "a": "ix_6_0",
+      "b": "ix_6_1",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_1",
+      "b": "ix_6_2",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_2",
+      "b": "ix_6_3",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_3",
+      "b": "ix_6_4",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_4",
+      "b": "ix_6_5",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_5",
+      "b": "ix_6_6",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_6",
+      "b": "ix_6_7",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_7",
+      "b": "ix_6_8",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_8",
+      "b": "ix_6_9",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_6_9",
+      "b": "ix_6_10",
+      "distance": 0.22,
+      "cost": 0.154,
+      "class": "arterial",
+      "road": "Av. Principal N-S"
+    },
+    {
+      "a": "ix_0_0",
+      "b": "ix_1_1",
+      "distance": 0.3111,
+      "cost": 0.2178,
+      "class": "arterial",
+      "road": "Anillo/Diagonal"
+    },
+    {
+      "a": "ix_2_2",
+      "b": "ix_3_3",
+      "distance": 0.3111,
+      "cost": 0.2178,
+      "class": "arterial",
+      "road": "Anillo/Diagonal"
+    },
+    {
+      "a": "ix_4_4",
+      "b": "ix_5_5",
+      "distance": 0.3111,
+      "cost": 0.2178,
+      "class": "arterial",
+      "road": "Anillo/Diagonal"
+    },
+    {
+      "a": "ix_6_6",
+      "b": "ix_7_7",
+      "distance": 0.3111,
+      "cost": 0.2178,
+      "class": "arterial",
+      "road": "Anillo/Diagonal"
+    },
+    {
+      "a": "ix_8_8",
+      "b": "ix_9_9",
+      "distance": 0.3111,
+      "cost": 0.2178,
+      "class": "arterial",
+      "road": "Anillo/Diagonal"
+    },
+    {
+      "a": "taxi_terminal",
+      "b": "ix_5_6",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "taxi_quillacollo",
+      "b": "ix_1_5",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_1",
+      "b": "ix_2_9",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_2",
+      "b": "ix_8_9",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_3",
+      "b": "ix_9_7",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_4",
+      "b": "ix_1_8",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_5",
+      "b": "ix_0_3",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_6",
+      "b": "ix_3_1",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_7",
+      "b": "ix_10_2",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "home_8",
+      "b": "ix_7_0",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "store_prado",
+      "b": "ix_6_6",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "store_recoleta",
+      "b": "ix_4_8",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "store_blanco_galindo",
+      "b": "ix_0_5",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "store_circunvalacion",
+      "b": "ix_9_6",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "store_sacaba",
+      "b": "ix_10_5",
+      "distance": 0.05,
+      "cost": 0.05
+    },
+    {
+      "a": "store_zona_sur",
+      "b": "ix_6_1",
+      "distance": 0.05,
+      "cost": 0.05
+    }
+  ],
+  "stores": [
+    {
+      "branch_id": "Hipermaxi_El_Prado",
+      "node_id": "store_prado",
+      "name": "Hipermaxi El Prado"
+    },
+    {
+      "branch_id": "Hipermaxi_Recoleta",
+      "node_id": "store_recoleta",
+      "name": "Hipermaxi Recoleta"
+    },
+    {
+      "branch_id": "Hipermaxi_Blanco_Galindo",
+      "node_id": "store_blanco_galindo",
+      "name": "Hipermaxi Blanco Galindo"
+    },
+    {
+      "branch_id": "Hipermaxi_Circunvalacion",
+      "node_id": "store_circunvalacion",
+      "name": "Hipermaxi Circunvalación"
+    },
+    {
+      "branch_id": "Hipermaxi_Sacaba",
+      "node_id": "store_sacaba",
+      "name": "Hipermaxi Sacaba"
+    },
+    {
+      "branch_id": "Hipermaxi_Panamericana",
+      "node_id": "store_zona_sur",
+      "name": "Hipermaxi Zona Sur"
+    }
+  ]
+}

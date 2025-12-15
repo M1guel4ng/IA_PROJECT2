@@ -1,5 +1,5 @@
 {
-  "meta": { "name": "Hipermaxi CBBA - Recoleta (Grande)", "city": "Cochabamba", "units": "cells" },
+  "meta": { "name": "Hipermaxi CBBA - Torres Sofer", "city": "Cochabamba", "units": "cells" },
   "grid": { "width": 60, "height": 34 },
   "entrance": { "x": 1, "y": 17 },
   "exit": { "x": 58, "y": 17 },

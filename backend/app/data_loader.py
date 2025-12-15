@@ -14,7 +14,7 @@ def _project_root() -> Path:
 
 def load_map(map_path: Path | None = None) -> MapData:
     if map_path is None:
-        map_path = _project_root() / "data" / "supermarket_cbba_v1.json"
+        map_path = _project_root() / "data" / "Hipermaxi_El_Prado.json"
 
     data = json.loads(Path(map_path).read_text(encoding="utf-8"))
 
@@ -85,3 +85,23 @@ def load_map(map_path: Path | None = None) -> MapData:
         sections=sections,
         products=products
     )
+
+def _project_root() -> Path:
+    # Ajusta si tu estructura difiere:
+    # backend/app/data_loader.py -> backend/app -> backend -> project_root
+    return Path(__file__).resolve().parents[2]
+
+def load_city_graph(graph_file: str | None = None) -> dict:
+    """
+    Carga grafo de ciudad para simulación de taxi.
+    Default: <project_root>/data/city_graph_cbba_sim.json
+    """
+    root = _project_root()
+    path = Path(graph_file) if graph_file else (root / "data" / "city_graph_cbba_sim.json")
+    if not path.is_absolute():
+        path = root / path
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict) or "nodes" not in data or "edges" not in data:
+        raise ValueError("city graph inválido (necesita 'nodes' y 'edges')")
+    return data

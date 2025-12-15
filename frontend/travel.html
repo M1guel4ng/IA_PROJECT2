@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Taxi → Hipermaxi (Simulación)</title>
+  <link rel="stylesheet" href="travel.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🚕</div>
+      <div>
+        <div class="title">Taxi → Hipermaxi (CBBA simulado)</div>
+        <div class="subtitle" id="subtitle">Conectando…</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="field">
+        <label>Backend URL</label>
+        <input id="baseUrl" type="text" placeholder="http://localhost:8000" />
+      </div>
+
+      <div class="btnrow">
+        <button class="btn" id="btnReload">Recargar</button>
+        <button class="btn primary" id="btnReset">Reset</button>
+        <button class="btn" id="btnStep">Step</button>
+        <button class="btn" id="btnStep10">Step x10</button>
+        <button class="btn success" id="btnPlay">Play</button>
+        <button class="btn danger" id="btnPause" disabled>Pause</button>
+      </div>
+
+      <div class="field small">
+        <label>Velocidad</label>
+        <div class="rangeRow">
+          <input id="speed" type="range" min="60" max="1200" step="60" value="240" />
+          <span class="tiny"><span id="speedLabel">240</span> ms</span>
+        </div>
+      </div>
+
+      <div class="btnrow">
+        <button class="btn" id="btnCalibrate" title="Ajustar el encuadre de nodos sobre el mapa">Calibrar</button>
+        <button class="btn" id="btnClearPick" title="Limpiar selección (home/taxi)">Limpiar selección</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="leftPane">
+      <div class="panelHead">
+        <div class="pill" id="pillStatus">●</div>
+        <div class="pill soft" id="pillPicked">Taxi: — | Casa: —</div>
+        <div class="pill soft" id="pillTarget">Destino: —</div>
+        <div class="spacer"></div>
+        <div class="hint">Tip: click en un nodo = taxi_start, click en una casa = home_id</div>
+      </div>
+
+      <div class="mapCard">
+        <canvas id="mapCanvas"></canvas>
+        <div class="hud" id="hud"></div>
+      </div>
+
+      <div class="legend">
+        <span class="chip"><span class="dot intersection"></span> Intersección</span>
+        <span class="chip"><span class="dot arterial"></span> Arterial</span>
+        <span class="chip"><span class="dot home"></span> Casa</span>
+        <span class="chip"><span class="dot store"></span> Hipermaxi</span>
+        <span class="chip"><span class="dot taxi"></span> Taxi</span>
+        <span class="chip"><span class="dot stand"></span> Parada taxi</span>
+        <span class="chip"><span class="dot selected"></span> Seleccionado</span>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="card">
+        <h3>Estado</h3>
+        <div class="kv">
+          <div class="k">Step</div><div class="v" id="stStep">-</div>
+          <div class="k">Taxi node</div><div class="v" id="stTaxi">-</div>
+          <div class="k">Onboard</div><div class="v" id="stOnboard">-</div>
+          <div class="k">Buyer node</div><div class="v" id="stBuyer">-</div>
+          <div class="k">Home</div><div class="v" id="stHome">-</div>
+          <div class="k">Store node</div><div class="v" id="stStore">-</div>
+          <div class="k">Branch</div><div class="v" id="stBranch">-</div>
+          <div class="k">Plan</div><div class="v" id="stPlan">-</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Log</h3>
+        <div class="log" id="log">—</div>
+      </div>
+
+      <div class="card">
+        <h3>Ayuda rápida</h3>
+        <div class="tiny">
+          <ul>
+            <li><b>Calibrar</b>: ajusta el rectángulo donde se “proyectan” nodos sobre tu imagen.</li>
+            <li><b>Click nodo</b>: selecciona taxi_start (cualquier nodo).</li>
+            <li><b>Click casa</b>: selecciona home_id.</li>
+            <li><b>Reset</b>: llama <code>/api/travel/reset</code> con tus selecciones.</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="travel.js"></script>
+</body>
+</html>
