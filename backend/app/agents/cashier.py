@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any
 
 from ..models import WorldState
 from ..bitacora import write_event
@@ -44,23 +44,28 @@ class CashierAgent:
     def _siguiente_sku_a_escanear(self, world: WorldState) -> Optional[str]:
         """
         Escanea SOLO lo que el comprador realmente tiene en el carrito.
-        (Evita 'ghost scans' cuando vale=0 o carrito vacío.)
         """
         b = world.buyer
         c = world.cashier
-        scanned = set(c.scanned_skus)
+        scanned = set(c.scanned_skus or [])
 
-        for sku in b.cart:
+        for sku in b.cart or []:
             if sku not in scanned:
                 return sku
         return None
 
     def _registrar_escaneo(self, world: WorldState, sku: str) -> None:
-        b = world.buyer
         c = world.cashier
         prod = world.map_data.products.get(sku)
         if not prod:
             return
+
+        if c.scanned_skus is None:
+            c.scanned_skus = []
+        if c.scan_log is None:
+            c.scan_log = []
+        if c.subtotal is None:
+            c.subtotal = 0.0
 
         c.scanned_skus.append(sku)
         c.subtotal = float(c.subtotal) + float(prod.price)
@@ -82,23 +87,37 @@ class CashierAgent:
 
     def _canjear_vale(self, world: WorldState) -> None:
         """
-        Canjea el vale (si vale=0, simplemente termina sin escanear nada).
+        Canjea el vale y, si sobra dinero, devuelve cambio.
         """
         b = world.buyer
         c = world.cashier
 
-        voucher = float(b.voucher_amount)
-        subtotal = float(c.subtotal)
+        if c.scan_log is None:
+            c.scan_log = []
+        if c.subtotal is None:
+            c.subtotal = 0.0
+        if c.redeemed_amount is None:
+            c.redeemed_amount = 0.0
+        if c.voucher_remaining is None:
+            c.voucher_remaining = float(b.voucher_amount)
+        if c.change_given is None:
+            c.change_given = 0.0
 
-        # El comprador ya debería haber comprado <= vale,
-        # pero igual protegemos:
+        voucher = float(b.voucher_amount or 0.0)
+        subtotal = float(c.subtotal or 0.0)
+
         redeemed = min(subtotal, voucher)
+        change = max(0.0, voucher - subtotal)
 
         c.redeemed_amount = float(redeemed)
-        c.voucher_remaining = float(max(0.0, voucher - redeemed))
+        c.change_given = float(change)
 
-        # Mantener coherencia con el comprador
-        b.budget_remaining = float(c.voucher_remaining)
+        # el vale se consume al pagar
+        c.voucher_remaining = 0.0
+
+        # cerrar compra en comprador
+        b.budget_remaining = 0.0
+        b.change_received = float(change)
 
         ev: Dict[str, Any] = {
             "event": "redeem",
@@ -107,31 +126,32 @@ class CashierAgent:
             "subtotal": round(subtotal, 2),
             "voucher": round(voucher, 2),
             "redeemed": round(redeemed, 2),
-            "remaining": round(float(c.voucher_remaining), 2),
+            "change_given": round(change, 2),
         }
         c.scan_log.append(ev)
         c.last_scan = ev
         write_event(ev)
 
-        world.log(f"✅ Canje vale: subtotal={subtotal:.2f} vale={voucher:.2f} restante={c.voucher_remaining:.2f}")
+        world.log(
+            f"✅ Pago: subtotal={subtotal:.2f} vale={voucher:.2f} "
+            f"canjeado={redeemed:.2f} cambio={change:.2f}"
+        )
 
         b.paid = True
         c.status = "done"
 
-        # ---------- Ciclo principal del agente ----------
-    # Se ejecuta en cada tick: escanea o finaliza el pago.
+    # ---------- Ciclo principal ----------
     def paso(self, world: WorldState) -> None:
         """
-        Reglas:
-        - El cajero NO se mueve y NO cuenta pasos.
+        Se ejecuta en cada tick.
         - Solo trabaja si el comprador está en la cola de una caja.
-        - Solo escanea productos que existen en buyer.cart.
-        - Si el carrito está vacío (vale=0 o no compró nada): redeem directo (0) y termina.
+        - Escanea 1 SKU por tick.
+        - Al final canjea vale y devuelve cambio si corresponde.
         """
         b = world.buyer
         c = world.cashier
 
-        # Si el comprador ya pagó, el cajero no hace nada
+        # Si ya pagó, no hacer nada
         if b.paid:
             c.status = "idle"
             return
@@ -146,11 +166,11 @@ class CashierAgent:
         c.register_id = reg_id
         c.status = c.status or "scanning"
 
-        # Fijar posición del cajero en su caja (sin "caminar")
+        # Fijar posición del cajero en su caja
         reg = world.map_data.registers[reg_id]
-        c.pos = reg.cashier_spot  # el cajero es estático
+        c.pos = reg.cashier_spot
 
-        # Inicializar campos si vienen None
+        # Inicializar campos
         if c.scanned_skus is None:
             c.scanned_skus = []
         if c.scan_log is None:
@@ -160,28 +180,30 @@ class CashierAgent:
         if c.redeemed_amount is None:
             c.redeemed_amount = 0.0
         if c.voucher_remaining is None:
-            c.voucher_remaining = float(b.voucher_amount)
+            c.voucher_remaining = float(b.voucher_amount or 0.0)
+        if c.change_given is None:
+            c.change_given = 0.0
 
-        # ✅ Caso crítico: vale=0 o no compró nada => carrito vacío
-        if not b.cart:
-            # no generes scans fantasma
+        # Si no hay carrito -> canje directo (redeem=0 si voucher=0)
+        if not (b.cart or []):
             c.subtotal = 0.0
-            self._canjear_vale(world)  # redeem será 0 si voucher=0
+            c.status = "redeeming"
+            self._canjear_vale(world)
             return
 
-        # Escanea 1 por step
+        # Escanea 1 por paso
         next_sku = self._siguiente_sku_a_escanear(world)
         if next_sku:
             c.status = "scanning"
             self._registrar_escaneo(world, next_sku)
             return
 
-        # Ya escaneó todo el carrito -> canjear
+        # Ya escaneó todo -> canjear
         c.status = "redeeming"
         self._canjear_vale(world)
-    # --- Alias de compatibilidad (inglés) ---
+
+    # Alias inglés (por compatibilidad)
     def step(self, world: WorldState) -> None:
-        """Alias: llama a :meth:`paso`."""
         return self.paso(world)
 
     def _find_active_register(self, world: WorldState) -> Optional[str]:
@@ -190,8 +212,8 @@ class CashierAgent:
     def _next_sku_to_scan(self, world: WorldState) -> Optional[str]:
         return self._siguiente_sku_a_escanear(world)
 
-    def _log_scan(self, world: WorldState, scan: Dict[str, Any]) -> None:
-        return self._registrar_escaneo(world, scan)
+    def _log_scan(self, world: WorldState, sku: str) -> None:
+        return self._registrar_escaneo(world, sku)
 
     def _redeem_voucher(self, world: WorldState) -> None:
         return self._canjear_vale(world)

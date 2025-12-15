@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elegir sucursal • Supermercado Multiagente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🏪</div>
+      <div>
+        <div class="title">Elegir sucursal</div>
+        <div class="subtitle">Selecciona el mapa/entorno antes de iniciar la simulación</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="field">
+        <label>🌐 Backend URL</label>
+        <input id="baseUrl" type="text" value="http://localhost:8000" />
+        <div class="hint">Ej: http://127.0.0.1:8000</div>
+      </div>
+
+      <div class="btnrow">
+        <button id="btnReload" class="btn primary">🔄 Cargar lista</button>
+        <button id="btnGoIndex" class="btn">↩️ Volver</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout branchLayout">
+    <section class="card branchCard">
+      <h3>📍 Sucursales disponibles</h3>
+      <div id="branchesStatus" class="hint">—</div>
+      <div id="branchesList" class="branchGrid"></div>
+
+      <div class="divider"></div>
+
+      <h3>✍️ Selección manual (si no aparece la lista)</h3>
+      <div class="field">
+        <label>🆔 map_id</label>
+        <input id="manualMapId" type="text" placeholder="Ej: supermarket_cbba_v1" />
+        <div class="hint">Debe coincidir con lo que entienda tu backend (por ejemplo nombre de archivo sin .json).</div>
+      </div>
+      <div class="btnrow">
+        <button id="btnUseManual" class="btn success">✅ Usar esta sucursal</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="branch.js"></script>
+</body>
+</html>

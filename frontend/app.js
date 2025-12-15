@@ -2,6 +2,34 @@ const el = (id) => document.getElementById(id);
 const setText = (node, txt) => { if (node) node.textContent = txt; };
 const setHTML = (node, html) => { if (node) node.innerHTML = html; };
 
+
+// ---- Persistencia (localStorage) ----
+const LS = {
+  API_BASE: "sm_api_base",
+  BRANCH_ID: "sm_branch_id",
+  BRANCH_NAME: "sm_branch_name",
+  BRANCH_CITY: "sm_branch_city",
+};
+
+function getBranchId(){
+  return localStorage.getItem(LS.BRANCH_ID) || "";
+}
+
+function setBranchLabel(){
+  const elSub = document.getElementById("branchSubtitle");
+  if(!elSub) return;
+
+  const id = getBranchId();
+  const name = localStorage.getItem(LS.BRANCH_NAME);
+  const city = localStorage.getItem(LS.BRANCH_CITY);
+
+  const label = name
+    ? `${name}${city ? " • " + city : ""}`
+    : (id ? id : "—");
+
+  elSub.textContent = `Sucursal: ${label}`;
+}
+
 const canvas = el("canvas");
 const ctx = canvas?.getContext("2d");
 const tooltip = el("tooltip");
@@ -10,6 +38,7 @@ const baseUrlInput = el("baseUrl");
 const voucherInput = el("voucher");
 const algoSelect = el("algo");
 
+const btnBranch = el("btnBranch");
 const btnReset = el("btnReset");
 const btnStep = el("btnStep");
 const btnStep10 = el("btnStep10");
@@ -18,17 +47,14 @@ const btnPause = el("btnPause");
 
 const speedRange = el("speed");
 const speedLabel = el("speedLabel");
-const statusText = el("statusText");
 
-// Tabs
 const tabMapBtn = el("tabMapBtn");
 const tabCashierBtn = el("tabCashierBtn");
 const viewMap = el("viewMap");
 const viewCashier = el("viewCashier");
-let currentTab = "map";
-let autoSwitched = false;
 
-// Sidebar
+const statusText = el("statusText");
+
 const stStep = el("stStep");
 const stBuyerPos = el("stBuyerPos");
 const stVoucher = el("stVoucher");
@@ -59,25 +85,37 @@ const cashierProgressBar = el("cashierProgressBar");
 const cashierLog = el("cashierLog");
 const cartList = el("cartList");
 
+// ✅ NUEVO (vista mapa)
+const buyProgressText = el("buyProgressText");
+const buyProgressBar = el("buyProgressBar");
+const buyVoucher = el("buyVoucher");
+const buySpent = el("buySpent");
+const buyRemain = el("buyRemain");
+const buyItems = el("buyItems");
+const mapCartBox = el("mapCartBox");
+
 let state = null;
 let playTimer = null;
 let cellSize = 18;
+let currentTab = "map";
 
 function setStatus(msg){ setText(statusText, msg); }
 
 function setTab(tab){
   currentTab = tab;
-  viewMap?.classList.toggle("active", tab === "map");
-  viewCashier?.classList.toggle("active", tab === "cashier");
-  tabMapBtn?.classList.toggle("active", tab === "map");
-  tabCashierBtn?.classList.toggle("active", tab === "cashier");
-  hideTooltip();
-  if (state && tab === "map") render(state);
-  if (state && tab === "cashier") updateUI(state);
+  const isMap = tab === "map";
+  tabMapBtn?.classList.toggle("active", isMap);
+  tabCashierBtn?.classList.toggle("active", !isMap);
+  viewMap?.classList.toggle("active", isMap);
+  viewCashier?.classList.toggle("active", !isMap);
+  if (state){
+    if (isMap) render(state);
+    if (!isMap) updateCashierUI(state);
+  }
 }
 
 function apiBase(){
-  return (baseUrlInput?.value || "http://localhost:8000").replace(/\/$/, "");
+  return (baseUrlInput?.value || localStorage.getItem(LS.API_BASE) || "http://localhost:8000").replace(/\/$/, "");
 }
 
 async function apiGetMap(){
@@ -90,6 +128,8 @@ async function apiReset(){
   const voucher = Number(voucherInput?.value || 0);
   const algo = algoSelect?.value || "astar";
   const qs = new URLSearchParams({ voucher: String(voucher), algo });
+  const branchId = getBranchId();
+  if(branchId) qs.set("map_id", branchId);
   const r = await fetch(`${apiBase()}/api/reset?${qs}`, { method: "POST" });
   if (!r.ok) throw new Error(`POST /api/reset ${r.status}`);
   return await r.json();
@@ -115,84 +155,202 @@ function resizeCanvasForGrid(grid){
   const h = grid.height * cellSize;
 
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = w * dpr;
-  canvas.height = h * dpr;
-  canvas.style.width = w + "px";
-  canvas.style.height = h + "px";
+  canvas.style.width = `${w}px`;
+  canvas.style.height = `${h}px`;
+  canvas.width = Math.floor(w * dpr);
+  canvas.height = Math.floor(h * dpr);
+
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 }
 
-function gridToPx(p){ return { x: p.x * cellSize, y: p.y * cellSize }; }
-function clear(){ if (ctx && canvas) ctx.clearRect(0,0,canvas.width,canvas.height); }
-
-function drawRect(x,y,w,h,fill,stroke=null){
-  if(!ctx) return;
-  ctx.fillStyle=fill; ctx.fillRect(x,y,w,h);
-  if(stroke){ ctx.strokeStyle=stroke; ctx.strokeRect(x+0.5,y+0.5,w-1,h-1); }
-}
-function drawCircle(cx,cy,r,fill,stroke=null){
-  if(!ctx) return;
-  ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2); ctx.closePath();
-  ctx.fillStyle=fill; ctx.fill();
-  if(stroke){ ctx.strokeStyle=stroke; ctx.stroke(); }
-}
-function drawText(txt,x,y,color="rgba(15,23,42,.85)",font="12px ui-monospace"){
-  if(!ctx) return;
-  ctx.fillStyle=color; ctx.font=font; ctx.fillText(txt,x,y);
+function gridToPx(p){
+  return { x: p.x * cellSize, y: p.y * cellSize };
 }
 
-function fmt(n){ return Number(n||0).toFixed(2); }
-
-function buyerOnQueue(s){
-  const b = s?.agents?.buyer;
-  if(!b) return false;
-  const regs = s.registers || [];
-  return regs.some(r => (b.pos.x === r.queue_spot.x && b.pos.y === r.queue_spot.y));
-}
-
-function maybeAutoSwitch(s){
-  if (autoSwitched) return;
-  const cashier = s?.agents?.cashier;
-  const b = s?.agents?.buyer;
-  if (!cashier || !b) return;
-
-  const activeCashier = cashier.status && cashier.status !== "idle";
-  const onQueue = buyerOnQueue(s);
-
-  if (activeCashier || onQueue){
-    autoSwitched = true;
-    setTab("cashier");
-    setStatus("🧾 En caja (auto)");
+function drawRect(x,y,w,h,fill,stroke){
+  if (!ctx) return;
+  ctx.fillStyle = fill;
+  ctx.fillRect(x,y,w,h);
+  if (stroke){
+    ctx.strokeStyle = stroke;
+    ctx.strokeRect(x+.5,y+.5,w-1,h-1);
   }
+}
+
+function drawCircle(cx,cy,r,fill,stroke){
+  if (!ctx) return;
+  ctx.beginPath();
+  ctx.arc(cx,cy,r,0,Math.PI*2);
+  ctx.closePath();
+  ctx.fillStyle = fill;
+  ctx.fill();
+  if(stroke){
+    ctx.strokeStyle = stroke;
+    ctx.stroke();
+  }
+}
+
+function drawText(txt, x, y){
+  if (!ctx) return;
+  ctx.fillStyle="rgba(15,23,42,.78)";
+  ctx.font = `bold ${Math.max(10, cellSize*0.55)}px ui-sans-serif, system-ui`;
+  ctx.fillText(txt, x, y);
+}
+
+// ---- Tooltip helpers (FIX hover) ----
+function fmt(n){
+  const v = Number(n);
+  if (Number.isNaN(v)) return "0.00";
+  return v.toFixed(2);
+}
+
+function hideTooltip(){
+  if(!tooltip) return;
+  tooltip.style.display="none";
+}
+
+function showTooltipAtMouse(ev, html){
+  if(!tooltip || !canvas) return;
+
+  const stage = canvas.parentElement;
+  const srect = stage.getBoundingClientRect();
+
+  const left = (ev.clientX - srect.left) + 16;
+  const top  = (ev.clientY - srect.top) + 16;
+
+  tooltip.style.display = "block";
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+  tooltip.innerHTML = html;
+}
+
+function getCanvasPosFromMouse(ev){
+  if(!canvas) return { x: 0, y: 0 };
+  const rect = canvas.getBoundingClientRect();
+  return { x: (ev.clientX - rect.left), y: (ev.clientY - rect.top) };
+}
+
+/** Formatea eventos del cajero */
+function formatCashierEvent(ev){
+  if(!ev) return "-";
+  if(typeof ev === "string") return ev;
+
+  if(ev.event === "scan"){
+    const price = (Number(ev.price)||0).toFixed(2);
+    const sub = (Number(ev.subtotal)||0).toFixed(2);
+    return `🧾 Scan ${ev.sku} • ${ev.name} (+${price}) subtotal=${sub}`;
+  }
+
+  if(ev.event === "redeem"){
+    const sub = (Number(ev.subtotal)||0).toFixed(2);
+    const v = (Number(ev.voucher)||0).toFixed(2);
+    const red = (Number(ev.redeemed)||0).toFixed(2);
+    const ch = (Number(ev.change_given)||0).toFixed(2);
+    return `✅ Pago subtotal=${sub} vale=${v} canjeado=${red} cambio=${ch}`;
+  }
+
+  try { return JSON.stringify(ev); } catch { return String(ev); }
+}
+
+/** ✅ NUEVO: genera un index sku->producto para el carrito visible */
+function buildProductIndex(s){
+  const idx = new Map();
+  for(const p of (s.products || [])){
+    idx.set(p.sku, p);
+  }
+  return idx;
+}
+
+/** ✅ NUEVO: pinta el carrito en la vista mapa + progreso */
+function updateMapPurchaseUI(s){
+  const buyer = s.agents?.buyer;
+  if(!buyer) return;
+
+  const voucher = Number(buyer.voucher_amount ?? 0);
+  const remaining = Number(buyer.budget_remaining ?? 0);
+  const spent = Math.max(0, voucher - remaining);
+
+  // progreso (gastado/vale)
+  const pct = voucher > 0 ? Math.min(100, Math.round((spent / voucher) * 100)) : 0;
+
+  setText(buyVoucher, voucher.toFixed(2));
+  setText(buySpent, spent.toFixed(2));
+  setText(buyRemain, remaining.toFixed(2));
+  setText(buyItems, String((buyer.cart || []).length));
+
+  setText(buyProgressText, `${pct}% (${spent.toFixed(2)}/${voucher.toFixed(2)})`);
+  if(buyProgressBar) buyProgressBar.style.width = `${pct}%`;
+
+  // carrito detallado
+  const idx = buildProductIndex(s);
+  const cart = buyer.cart || [];
+
+  if(!mapCartBox) return;
+
+  if(!cart.length){
+    setHTML(mapCartBox, "—");
+    return;
+  }
+
+  let total = 0;
+  const rows = cart.map((sku)=>{
+    const p = idx.get(sku);
+    const name = p?.name || sku;
+    const price = Number(p?.price ?? 0);
+    total += price;
+
+    return `
+      <div class="cartRow">
+        <div>
+          <div class="cartName">${name}</div>
+          <div class="cartSku">${sku}</div>
+        </div>
+        <div class="cartPrice">Bs ${price.toFixed(2)}</div>
+      </div>
+    `;
+  }).join("");
+
+  const footer = `
+    <div class="cartRow" style="border-top:1px solid rgba(148,163,184,.18);border-bottom:none">
+      <div style="font-weight:800">TOTAL</div>
+      <div class="cartPrice" style="font-weight:900">Bs ${total.toFixed(2)}</div>
+    </div>
+  `;
+
+  setHTML(mapCartBox, rows + footer);
 }
 
 function render(s){
-  if(!s) return;
-  if (currentTab !== "map"){ updateUI(s); return; }
+  if(!s || !ctx || !canvas) return;
 
   const grid = s.grid;
   resizeCanvasForGrid(grid);
-  clear();
 
-  // Fondo
-  drawRect(0,0,grid.width*cellSize,grid.height*cellSize,"rgba(15,23,42,.02)");
+  ctx.clearRect(0,0,grid.width*cellSize,grid.height*cellSize);
 
-  // Estantes
-  for(const sh of s.shelves){
-    const x=sh.rect.x*cellSize, y=sh.rect.y*cellSize, w=sh.rect.w*cellSize, h=sh.rect.h*cellSize;
-    drawRect(x,y,w,h,"rgba(148,163,184,.55)","rgba(15,23,42,.12)");
+  for(let y=0;y<grid.height;y++){
+    for(let x=0;x<grid.width;x++){
+      const px = x*cellSize, py = y*cellSize;
+      drawRect(px,py,cellSize,cellSize,"rgba(148,163,184,.08)","rgba(15,23,42,.05)");
+    }
   }
 
-  // Entrada/salida
+  for(const sh of s.shelves){
+    const r = sh.rect;
+    const px = r.x * cellSize;
+    const py = r.y * cellSize;
+    drawRect(px,py,r.w*cellSize,r.h*cellSize,"rgba(148,163,184,.20)","rgba(15,23,42,.18)");
+    drawText(sh.id, px+4, py+Math.max(12, cellSize));
+  }
+
   const en = gridToPx(s.entrance);
-  drawRect(en.x,en.y,cellSize,cellSize,"rgba(34,197,94,.65)","rgba(15,23,42,.15)");
-  drawText("IN", en.x+4, en.y+14);
+  drawRect(en.x,en.y,cellSize,cellSize,"rgba(34,197,94,.55)","rgba(15,23,42,.15)");
+  drawText("IN", en.x+4, en.y+Math.max(12, cellSize));
 
   const ex = gridToPx(s.exit);
   drawRect(ex.x,ex.y,cellSize,cellSize,"rgba(239,68,68,.65)","rgba(15,23,42,.15)");
-  drawText("OUT", ex.x+1, ex.y+14);
+  drawText("OUT", ex.x+1, ex.y+Math.max(12, cellSize));
 
-  // Cajas
   for(const r of s.registers){
     const q = gridToPx(r.queue_spot);
     const c = gridToPx(r.cashier_spot);
@@ -200,17 +358,17 @@ function render(s){
     drawRect(c.x,c.y,cellSize,cellSize,"rgba(251,113,133,.18)","rgba(251,113,133,.45)");
   }
 
-  // Productos
-  const prodPoints = [];
+  // Products hover index por celda
+  const prodByCell = new Map();
   for(const p of s.products){
+    prodByCell.set(`${p.pick.x},${p.pick.y}`, p);
+
     const px = gridToPx(p.pick);
     const cx = px.x + cellSize/2, cy = px.y + cellSize/2;
     drawCircle(cx,cy,Math.max(3,cellSize*0.18),"rgba(245,158,11,.90)","rgba(15,23,42,.20)");
-    prodPoints.push({ p, cx, cy, r: Math.max(6, cellSize*0.35) });
   }
-  render._prodPoints = prodPoints;
+  render._prodByCell = prodByCell;
 
-  // Path
   const path = s.agents?.buyer?.path || [];
   if(path.length>1 && ctx){
     ctx.strokeStyle="rgba(59,130,246,.35)";
@@ -225,72 +383,62 @@ function render(s){
     ctx.stroke();
   }
 
-  // Goal
   const goal = s.agents?.buyer?.goal;
   if(goal){
-    const g=gridToPx(goal);
-    drawRect(g.x,g.y,cellSize,cellSize,"rgba(16,185,129,.14)","rgba(16,185,129,.55)");
+    const gp=gridToPx(goal);
+    drawRect(gp.x,gp.y,cellSize,cellSize,"rgba(59,130,246,.22)","rgba(59,130,246,.60)");
   }
 
-  // Cajero
-  const cashier = s.agents?.cashier;
-  if(cashier){
-    const c = gridToPx(cashier.pos);
-    drawRect(c.x+cellSize*0.15,c.y+cellSize*0.15,cellSize*0.7,cellSize*0.7,"rgba(251,113,133,.95)","rgba(15,23,42,.20)");
-  }
-
-  // Comprador
   const buyer = s.agents?.buyer;
   if(buyer){
-    const b = gridToPx(buyer.pos);
-    drawCircle(b.x+cellSize/2,b.y+cellSize/2,Math.max(6,cellSize*0.28),"rgba(59,130,246,.95)","rgba(15,23,42,.20)");
+    const bp=gridToPx(buyer.pos);
+    drawCircle(bp.x+cellSize/2,bp.y+cellSize/2,Math.max(5,cellSize*0.28),"rgba(59,130,246,.95)","rgba(15,23,42,.20)");
+  }
+
+  const cashier = s.agents?.cashier;
+  if(cashier){
+    const cp=gridToPx(cashier.pos);
+    drawCircle(cp.x+cellSize/2,cp.y+cellSize/2,Math.max(5,cellSize*0.26),"rgba(251,113,133,.95)","rgba(15,23,42,.20)");
   }
 
   updateUI(s);
+
+  // ✅ NUEVO: actualizar barra + carrito en el mapa
+  updateMapPurchaseUI(s);
+
+  if (currentTab === "cashier") updateCashierUI(s);
 }
 
-function updateCartUI(s){
-  const buyer = s?.agents?.buyer;
-  if(!buyer){ setHTML(cartList, "—"); return; }
+function updateUI(s){
+  const buyer = s.agents?.buyer;
+  if(!buyer) return;
 
-  const prodMap = new Map((s.products||[]).map(p => [p.sku, p]));
-  const scannedSet = new Set((s.agents?.cashier?.scanned_skus || []));
+  setText(stStep, String(s.meta?.step ?? "-"));
+  setText(stBuyerPos, `(${buyer.pos.x}, ${buyer.pos.y})`);
+  setText(stVoucher, String(buyer.voucher_amount ?? "-"));
+  setText(stRemaining, String(buyer.budget_remaining ?? "-"));
+  const spent = (buyer.voucher_amount ?? 0) - (buyer.budget_remaining ?? 0);
+  setText(stSpent, spent.toFixed(2));
+  const pct = (buyer.voucher_amount ?? 0) > 0 ? (spent / buyer.voucher_amount) * 100 : 0;
+  setText(stSpentPct, `${pct.toFixed(0)}%`);
+  setText(stItems, String((buyer.cart || []).length));
+  setText(stBuyerSteps, String(buyer.steps_moved ?? "-"));
+  setText(stPaid, buyer.paid ? "Sí" : "No");
+  setText(stGoal, buyer.goal ? `(${buyer.goal.x}, ${buyer.goal.y}) • ${buyer.goal_kind}` : "—");
+  setText(stAlgo, buyer.algo || "-");
 
-  if(!buyer.cart?.length){
-    setHTML(cartList, "<div class='tiny'>— vacío —</div>");
-    return;
-  }
-
-  const rows = buyer.cart.map(sku => {
-    const p = prodMap.get(sku);
-    const name = p?.name || sku;
-    const price = p?.price ?? 0;
-    const scanned = scannedSet.has(sku);
-
-    return `
-      <div class="row">
-        <div class="left">
-          <div>
-            <span class="sku">${sku}</span>
-            <span class="badge ${scanned ? "" : "pending"}">${scanned ? "✅ escaneado" : "⏳ pendiente"}</span>
-          </div>
-          <div class="name">${name}</div>
-        </div>
-        <div class="price">${fmt(price)}</div>
-      </div>
-    `;
-  }).join("");
-
-  setHTML(cartList, rows);
+  const msgs = s.messages || [];
+  if (!msgs.length) setHTML(logEl, "—");
+  else setHTML(logEl, msgs.map(m=>`<div class="logLine">${m}</div>`).join(""));
 }
 
 function updateCashierUI(s){
-  const cashier = s?.agents?.cashier;
-  const buyer = s?.agents?.buyer;
+  const cashier = s.agents?.cashier;
+  const buyer = s.agents?.buyer;
 
   if(!cashier){
-    setText(pillCashierStatus, "🟦 idle");
-    setText(pillRegister, "🏷️ Caja: -");
+    setText(pillCashierStatus, "🧾 -");
+    setText(pillRegister, "🏷️ -");
     setText(stCashierStatus, "-");
     setText(stCashierReg, "-");
     setText(stCashierScanned, "-");
@@ -299,6 +447,7 @@ function updateCashierUI(s){
     setText(stCashierRemaining, "-");
     setText(stCashierLast, "-");
     setHTML(cashierLog, "—");
+    setHTML(cartList, "—");
     if (cashierProgressBar) cashierProgressBar.style.width = "0%";
     setText(stCashierProgressText, "-");
     return;
@@ -314,138 +463,51 @@ function updateCashierUI(s){
   const scannedCount = (cashier.scanned_skus || []).length;
   setText(stCashierScanned, String(scannedCount));
 
-  setText(stCashierSubtotal, fmt(cashier.subtotal));
-  setText(stCashierRedeemed, fmt(cashier.redeemed_amount));
-  setText(stCashierRemaining, fmt(cashier.voucher_remaining));
+  setText(stCashierSubtotal, (cashier.subtotal ?? 0).toFixed(2));
+  setText(stCashierRedeemed, (cashier.redeemed_amount ?? 0).toFixed(2));
+  setText(stCashierRemaining, (cashier.change_given ?? 0).toFixed(2)); // cambio
 
-  if(cashier.last_scan?.event==="scan"){
-    setText(stCashierLast, `${cashier.last_scan.sku} (+${fmt(cashier.last_scan.price)})`);
-  }else if(cashier.last_scan?.event==="redeem"){
-    setText(stCashierLast, `canje (${fmt(cashier.last_scan.redeemed)})`);
+  setText(stCashierLast, formatCashierEvent(cashier.last_scan));
+
+  const log = cashier.scan_log || [];
+  if (!log.length) setHTML(cashierLog, "—");
+  else setHTML(cashierLog, log.map(ev=>`<div class="logLine">${formatCashierEvent(ev)}</div>`).join(""));
+
+  const cart = buyer?.cart || [];
+  if(!cart.length) setHTML(cartList, "—");
+  else setHTML(cartList, cart.map(sku=>`<div class="cartItem">${sku}</div>`).join(""));
+
+  const total = Math.max(cart.length, 1);
+  const pct = Math.min(100, Math.round((scannedCount / total) * 100));
+  if (cashierProgressBar) cashierProgressBar.style.width = `${pct}%`;
+  setText(stCashierProgressText, `${pct}% (${scannedCount}/${cart.length || 0})`);
+}
+
+// ---- Hover tooltip FIX (por celda) ----
+canvas?.addEventListener("mousemove", (ev)=>{
+  if(!state || !render._prodByCell) return;
+  if(currentTab !== "map") { hideTooltip(); return; }
+
+  const pos = getCanvasPosFromMouse(ev);
+  const gx = Math.floor(pos.x / cellSize);
+  const gy = Math.floor(pos.y / cellSize);
+
+  const gw = state.grid?.width ?? 0;
+  const gh = state.grid?.height ?? 0;
+
+  if(gx < 0 || gy < 0 || gx >= gw || gy >= gh){
+    hideTooltip();
+    return;
+  }
+
+  const p = render._prodByCell.get(`${gx},${gy}`);
+  if(p){
+    showTooltipAtMouse(ev,
+      `<b>${p.name}</b><br><span class="muted">${p.sku}</span><br>💲${fmt(p.price)}<br>📦 ${p.section} • ${p.shelf}`
+    );
   }else{
-    setText(stCashierLast, "—");
+    hideTooltip();
   }
-
-  const voucher = Number(buyer?.voucher_amount || 0);
-  const redeemed = Number(cashier.redeemed_amount || 0);
-  const pct = voucher > 0 ? Math.max(0, Math.min(1, redeemed / voucher)) : 0;
-  if (cashierProgressBar) cashierProgressBar.style.width = `${Math.round(pct * 100)}%`;
-  setText(stCashierProgressText, `${Math.round(pct * 100)}%`);
-
-  const logs = (cashier.scan_log || []).slice(-40);
-  if(!logs.length){
-    setHTML(cashierLog, "<div class='tiny'>—</div>");
-  }else{
-    setHTML(cashierLog, logs.map(ev => {
-      if(ev.event==="scan"){
-        return `
-          <div class="item">
-            <div class="bullet"></div>
-            <div>
-              <div class="line1">🛒 SCAN ${ev.sku} • ${ev.name}</div>
-              <div class="line2">+${fmt(ev.price)} • subtotal: ${fmt(ev.subtotal)} • step #${ev.world_step}</div>
-            </div>
-          </div>
-        `;
-      }
-      if(ev.event==="redeem"){
-        return `
-          <div class="item redeem">
-            <div class="bullet"></div>
-            <div>
-              <div class="line1">✅ CANJE • vale aplicado</div>
-              <div class="line2">subtotal: ${fmt(ev.subtotal)} • vale: ${fmt(ev.voucher)} • restante: ${fmt(ev.remaining)} • step #${ev.world_step}</div>
-            </div>
-          </div>
-        `;
-      }
-      return `
-        <div class="item">
-          <div class="bullet"></div>
-          <div>
-            <div class="line1">Evento</div>
-            <div class="line2">${JSON.stringify(ev)}</div>
-          </div>
-        </div>
-      `;
-    }).join(""));
-  }
-
-  updateCartUI(s);
-}
-
-function updateUI(s){
-  const buyer = s.agents?.buyer;
-  setText(stStep, String(s.meta?.step ?? "-"));
-
-  if(buyer){
-    const voucher = Number(buyer.voucher_amount||0);
-    const remaining = Number(buyer.budget_remaining||0);
-    const spent = Math.max(0, voucher-remaining);
-    const pct = voucher>0 ? (spent/voucher) : 0;
-
-    setText(stBuyerPos, `(${buyer.pos.x},${buyer.pos.y})`);
-    setText(stVoucher, fmt(voucher));
-    setText(stRemaining, fmt(remaining));
-    setText(stSpent, fmt(spent));
-    setText(stSpentPct, `${Math.round(pct*100)}%`);
-    setText(stItems, `${buyer.cart.length}/${buyer.selected_skus.length}`);
-    setText(stBuyerSteps, String(buyer.steps_moved ?? 0));
-    setText(stPaid, buyer.paid ? "sí" : "no");
-    setText(stGoal, buyer.goal ? `${buyer.goal_kind} (${buyer.goal.x},${buyer.goal.y})` : buyer.goal_kind);
-    setText(stAlgo, buyer.algo);
-  }else{
-    setText(stBuyerPos, "-");
-    setText(stVoucher, "-");
-    setText(stRemaining, "-");
-    setText(stSpent, "-");
-    setText(stSpentPct, "-");
-    setText(stItems, "-");
-    setText(stBuyerSteps, "-");
-    setText(stPaid, "-");
-    setText(stGoal, "-");
-    setText(stAlgo, "-");
-  }
-
-  setText(logEl, (s.messages||[]).length ? (s.messages||[]).join("\n") : "—");
-
-  updateCashierUI(s);
-  maybeAutoSwitch(s);
-}
-
-function pointDist(ax,ay,bx,by){
-  const dx=ax-bx, dy=ay-by;
-  return Math.sqrt(dx*dx+dy*dy);
-}
-function showTooltip(x,y,html){
-  if(!tooltip) return;
-  tooltip.style.display="block";
-  tooltip.style.left=x+"px";
-  tooltip.style.top=y+"px";
-  tooltip.innerHTML=html;
-}
-function hideTooltip(){ if(tooltip) tooltip.style.display="none"; }
-
-canvas?.addEventListener("mousemove",(ev)=>{
-  if(!state || currentTab!=="map") return;
-  const rect=canvas.getBoundingClientRect();
-  const mx=ev.clientX-rect.left;
-  const my=ev.clientY-rect.top;
-
-  const prodPoints = render._prodPoints || [];
-  let found=null;
-  for(const it of prodPoints){
-    if(pointDist(mx,my,it.cx,it.cy)<=it.r){ found=it.p; break; }
-  }
-
-  if(found){
-    showTooltip(mx+16,my+16,`
-      <div style="font-weight:900;margin-bottom:4px;">${found.name}</div>
-      <div><span style="opacity:.75">SKU:</span> ${found.sku}</div>
-      <div><span style="opacity:.75">Precio:</span> ${fmt(found.price)}</div>
-      <div><span style="opacity:.75">Pick:</span> (${found.pick.x},${found.pick.y})</div>
-    `);
-  }else hideTooltip();
 });
 canvas?.addEventListener("mouseleave", hideTooltip);
 
@@ -465,8 +527,6 @@ async function doReset(){
   stopPlay();
   try{
     setStatus("Reseteando…");
-    autoSwitched = false;
-    setTab("map");
     state = await apiReset();
     render(state);
     setStatus("OK");
@@ -501,11 +561,10 @@ function startPlay(){
   const interval = Number(speedRange?.value || 200);
   playTimer = setInterval(()=>doStep(1), interval);
 }
-
 function stopPlay(){
   if(!playTimer) return;
   clearInterval(playTimer);
-  playTimer=null;
+  playTimer = null;
   if(btnPlay) btnPlay.disabled=false;
   if(btnPause) btnPause.disabled=true;
 }
@@ -527,6 +586,22 @@ speedRange?.addEventListener("input", ()=>{
 window.addEventListener("resize", ()=>{ if(state && currentTab==="map") render(state); });
 
 // Init
+if (baseUrlInput){
+  const saved = localStorage.getItem(LS.API_BASE);
+  if(saved) baseUrlInput.value = saved;
+
+  baseUrlInput.addEventListener("change", ()=>{
+    localStorage.setItem(LS.API_BASE, baseUrlInput.value);
+  });
+}
+
+setBranchLabel();
+
+btnBranch?.addEventListener("click", ()=>{
+  if(baseUrlInput) localStorage.setItem(LS.API_BASE, baseUrlInput.value);
+  location.href = "branch.html";
+});
+
 setText(speedLabel, speedRange?.value || "200");
 setTab("map");
-refreshMap();
+doReset();

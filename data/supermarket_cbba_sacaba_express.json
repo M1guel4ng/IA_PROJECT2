@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "name": "Supermercado CBBA - Sacaba Express",
+    "city": "Cochabamba",
+    "units": "cells"
+  },
+  "grid": { "width": 30, "height": 18 },
+  "entrance": { "x": 1, "y": 9 },
+  "exit": { "x": 28, "y": 9 },
+  "walls": [
+    { "type": "border", "note": "Pared perimetral (se maneja en código como no-walkable)" }
+  ],
+  "registers": [
+    { "id": "R1", "cashier_spot": { "x": 25, "y": 7 }, "queue_spot": { "x": 23, "y": 7 } },
+    { "id": "R2", "cashier_spot": { "x": 25, "y": 11 }, "queue_spot": { "x": 23, "y": 11 } }
+  ],
+  "shelves": [
+    { "id": "S1", "rect": { "x": 5,  "y": 3,  "w": 3, "h": 4 }, "section": "FRUTAS_VERDURAS" },
+    { "id": "S2", "rect": { "x": 5,  "y": 9,  "w": 3, "h": 5 }, "section": "ABARROTES" },
+
+    { "id": "S3", "rect": { "x": 11, "y": 3,  "w": 3, "h": 4 }, "section": "LACTEOS" },
+    { "id": "S4", "rect": { "x": 11, "y": 9,  "w": 3, "h": 5 }, "section": "CARNES" },
+
+    { "id": "S5", "rect": { "x": 17, "y": 3,  "w": 3, "h": 4 }, "section": "HIGIENE" },
+    { "id": "S6", "rect": { "x": 17, "y": 9,  "w": 3, "h": 5 }, "section": "SNACKS" }
+  ],
+  "sections": [
+    { "id": "FRUTAS_VERDURAS", "label": "Frutas y Verduras" },
+    { "id": "ABARROTES", "label": "Abarrotes" },
+    { "id": "LACTEOS", "label": "Lácteos" },
+    { "id": "CARNES", "label": "Carnes y Embutidos" },
+    { "id": "LIMPIEZA", "label": "Limpieza" },
+    { "id": "HIGIENE", "label": "Higiene Personal" },
+    { "id": "BEBIDAS", "label": "Bebidas" },
+    { "id": "SNACKS", "label": "Snacks" }
+  ],
+  "products": [
+    { "sku": "SC001", "name": "Manzana (1 kg)", "price": 12.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 4, "y": 4 } },
+    { "sku": "SC002", "name": "Banana (1 kg)", "price": 10.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 4, "y": 5 } },
+    { "sku": "SC003", "name": "Tomate (1 kg)", "price": 9.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 4, "y": 6 } },
+
+    { "sku": "SC004", "name": "Arroz (1 kg)", "price": 8.5, "section": "ABARROTES", "shelf": "S2", "pick": { "x": 4, "y": 10 } },
+    { "sku": "SC005", "name": "Fideo (500 g)", "price": 6.5, "section": "ABARROTES", "shelf": "S2", "pick": { "x": 4, "y": 11 } },
+    { "sku": "SC006", "name": "Azúcar (1 kg)", "price": 7.5, "section": "ABARROTES", "shelf": "S2", "pick": { "x": 4, "y": 12 } },
+    { "sku": "SC007", "name": "Aceite (1 L)", "price": 16.0, "section": "ABARROTES", "shelf": "S2", "pick": { "x": 4, "y": 13 } },
+
+    { "sku": "SC008", "name": "Leche (1 L)", "price": 7.0, "section": "LACTEOS", "shelf": "S3", "pick": { "x": 10, "y": 4 } },
+    { "sku": "SC009", "name": "Yogurt (1 L)", "price": 11.0, "section": "LACTEOS", "shelf": "S3", "pick": { "x": 10, "y": 5 } },
+    { "sku": "SC010", "name": "Queso fresco (500 g)", "price": 18.0, "section": "LACTEOS", "shelf": "S3", "pick": { "x": 10, "y": 6 } },
+
+    { "sku": "SC011", "name": "Pollo (1 kg)", "price": 24.0, "section": "CARNES", "shelf": "S4", "pick": { "x": 10, "y": 10 } },
+    { "sku": "SC012", "name": "Carne molida (1 kg)", "price": 38.0, "section": "CARNES", "shelf": "S4", "pick": { "x": 10, "y": 11 } },
+    { "sku": "SC013", "name": "Jamón (200 g)", "price": 14.0, "section": "CARNES", "shelf": "S4", "pick": { "x": 10, "y": 12 } },
+
+    { "sku": "SC014", "name": "Pasta dental", "price": 10.0, "section": "HIGIENE", "shelf": "S5", "pick": { "x": 16, "y": 4 } },
+    { "sku": "SC015", "name": "Jabón de baño", "price": 6.5, "section": "HIGIENE", "shelf": "S5", "pick": { "x": 16, "y": 5 } },
+    { "sku": "SC016", "name": "Shampoo (400 ml)", "price": 22.0, "section": "HIGIENE", "shelf": "S5", "pick": { "x": 16, "y": 6 } },
+
+    { "sku": "SC017", "name": "Galletas (paquete)", "price": 7.0, "section": "SNACKS", "shelf": "S6", "pick": { "x": 16, "y": 10 } },
+    { "sku": "SC018", "name": "Papas fritas (bolsa)", "price": 8.5, "section": "SNACKS", "shelf": "S6", "pick": { "x": 16, "y": 11 } },
+    { "sku": "SC019", "name": "Barra de granola", "price": 5.0, "section": "SNACKS", "shelf": "S6", "pick": { "x": 16, "y": 12 } }
+  ]
+}

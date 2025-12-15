@@ -241,3 +241,54 @@ select{min-width:150px}
   .checkoutWide{grid-column:1}
   .moneyGrid{grid-template-columns:1fr}
 }
+
+/* -------- Branch selector -------- */
+.branchLayout{
+  grid-template-columns: 1fr;
+}
+
+.branchCard{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.branchGrid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.branchTile{
+  text-align:left;
+  border:1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 8px 20px rgba(15,23,42,.05);
+  padding: 12px 12px;
+  cursor:pointer;
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+
+.branchTile:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(15,23,42,.08);
+}
+
+.branchTitle{
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.branchSub{
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.divider{
+  height: 1px;
+  background: var(--border);
+  margin: 18px 0;
+}

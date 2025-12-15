@@ -137,6 +137,8 @@ class World:
                     "goal_kind": s.buyer.goal_kind,
                     "paid": s.buyer.paid,
                     "path": [pos(p) for p in s.buyer.path[:200]],
+                    "change_received": round(s.buyer.change_received, 2),
+
                 },
                 "cashier": {
                     "pos": pos(s.cashier.pos),
@@ -150,6 +152,8 @@ class World:
                     "voucher_remaining": round(s.cashier.voucher_remaining, 2),
                     "last_scan": s.cashier.last_scan,
                     "scan_log": s.cashier.scan_log,
+                    "change_given": round(s.cashier.change_given, 2),
+
                 },
             },
             "messages": s.messages,

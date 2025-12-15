@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "name": "Supermercado CBBA - Quillacollo (Hiper)",
+    "city": "Cochabamba",
+    "units": "cells"
+  },
+  "grid": { "width": 56, "height": 32 },
+  "entrance": { "x": 1, "y": 16 },
+  "exit": { "x": 54, "y": 16 },
+  "walls": [
+    { "type": "border", "note": "Pared perimetral (se maneja en código como no-walkable)" }
+  ],
+  "registers": [
+    { "id": "R1", "cashier_spot": { "x": 51, "y": 8 },  "queue_spot": { "x": 49, "y": 8 } },
+    { "id": "R2", "cashier_spot": { "x": 51, "y": 10 }, "queue_spot": { "x": 49, "y": 10 } },
+    { "id": "R3", "cashier_spot": { "x": 51, "y": 12 }, "queue_spot": { "x": 49, "y": 12 } },
+    { "id": "R4", "cashier_spot": { "x": 51, "y": 20 }, "queue_spot": { "x": 49, "y": 20 } },
+    { "id": "R5", "cashier_spot": { "x": 51, "y": 22 }, "queue_spot": { "x": 49, "y": 22 } },
+    { "id": "R6", "cashier_spot": { "x": 51, "y": 24 }, "queue_spot": { "x": 49, "y": 24 } }
+  ],
+  "shelves": [
+    { "id": "S1",  "rect": { "x": 6,  "y": 3,  "w": 3, "h": 6 }, "section": "FRUTAS_VERDURAS" },
+    { "id": "S2",  "rect": { "x": 12, "y": 3,  "w": 3, "h": 6 }, "section": "FRUTAS_VERDURAS" },
+    { "id": "S3",  "rect": { "x": 6,  "y": 11, "w": 3, "h": 6 }, "section": "ABARROTES" },
+    { "id": "S4",  "rect": { "x": 12, "y": 11, "w": 3, "h": 6 }, "section": "ABARROTES" },
+    { "id": "S5",  "rect": { "x": 6,  "y": 20, "w": 3, "h": 6 }, "section": "LIMPIEZA" },
+    { "id": "S6",  "rect": { "x": 12, "y": 20, "w": 3, "h": 6 }, "section": "HIGIENE" },
+
+    { "id": "S7",  "rect": { "x": 22, "y": 3,  "w": 3, "h": 6 }, "section": "LACTEOS" },
+    { "id": "S8",  "rect": { "x": 28, "y": 3,  "w": 3, "h": 6 }, "section": "LACTEOS" },
+    { "id": "S9",  "rect": { "x": 22, "y": 11, "w": 3, "h": 6 }, "section": "CARNES" },
+    { "id": "S10", "rect": { "x": 28, "y": 11, "w": 3, "h": 6 }, "section": "CARNES" },
+    { "id": "S11", "rect": { "x": 22, "y": 20, "w": 3, "h": 6 }, "section": "BEBIDAS" },
+    { "id": "S12", "rect": { "x": 28, "y": 20, "w": 3, "h": 6 }, "section": "SNACKS" },
+
+    { "id": "S13", "rect": { "x": 38, "y": 3,  "w": 3, "h": 6 }, "section": "ABARROTES" },
+    { "id": "S14", "rect": { "x": 44, "y": 3,  "w": 3, "h": 6 }, "section": "LIMPIEZA" },
+    { "id": "S15", "rect": { "x": 38, "y": 11, "w": 3, "h": 6 }, "section": "SNACKS" },
+    { "id": "S16", "rect": { "x": 44, "y": 11, "w": 3, "h": 6 }, "section": "HIGIENE" }
+  ],
+  "sections": [
+    { "id": "FRUTAS_VERDURAS", "label": "Frutas y Verduras" },
+    { "id": "ABARROTES", "label": "Abarrotes" },
+    { "id": "LACTEOS", "label": "Lácteos" },
+    { "id": "CARNES", "label": "Carnes y Embutidos" },
+    { "id": "LIMPIEZA", "label": "Limpieza" },
+    { "id": "HIGIENE", "label": "Higiene Personal" },
+    { "id": "BEBIDAS", "label": "Bebidas" },
+    { "id": "SNACKS", "label": "Snacks" }
+  ],
+  "products": [
+    { "sku": "QC001", "name": "Banana (1 kg)", "price": 10.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 5, "y": 4 } },
+    { "sku": "QC002", "name": "Manzana (1 kg)", "price": 12.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 5, "y": 5 } },
+    { "sku": "QC003", "name": "Naranja (1 kg)", "price": 11.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 5, "y": 6 } },
+    { "sku": "QC004", "name": "Tomate (1 kg)", "price": 9.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 5, "y": 7 } },
+
+    { "sku": "QC005", "name": "Papa (2 kg)", "price": 14.0, "section": "FRUTAS_VERDURAS", "shelf": "S2", "pick": { "x": 11, "y": 4 } },
+    { "sku": "QC006", "name": "Zanahoria (1 kg)", "price": 7.0, "section": "FRUTAS_VERDURAS", "shelf": "S2", "pick": { "x": 11, "y": 5 } },
+    { "sku": "QC007", "name": "Lechuga (unidad)", "price": 6.0, "section": "FRUTAS_VERDURAS", "shelf": "S2", "pick": { "x": 11, "y": 6 } },
+
+    { "sku": "QC008", "name": "Arroz (1 kg)", "price": 8.5, "section": "ABARROTES", "shelf": "S3", "pick": { "x": 5, "y": 12 } },
+    { "sku": "QC009", "name": "Fideo (500 g)", "price": 6.5, "section": "ABARROTES", "shelf": "S3", "pick": { "x": 5, "y": 13 } },
+    { "sku": "QC010", "name": "Azúcar (1 kg)", "price": 7.5, "section": "ABARROTES", "shelf": "S3", "pick": { "x": 5, "y": 14 } },
+    { "sku": "QC011", "name": "Harina (1 kg)", "price": 8.0, "section": "ABARROTES", "shelf": "S3", "pick": { "x": 5, "y": 15 } },
+
+    { "sku": "QC012", "name": "Aceite (1 L)", "price": 16.0, "section": "ABARROTES", "shelf": "S4", "pick": { "x": 11, "y": 12 } },
+    { "sku": "QC013", "name": "Atún en lata", "price": 9.5, "section": "ABARROTES", "shelf": "S4", "pick": { "x": 11, "y": 13 } },
+    { "sku": "QC014", "name": "Salsa de tomate", "price": 7.0, "section": "ABARROTES", "shelf": "S4", "pick": { "x": 11, "y": 14 } },
+
+    { "sku": "QC015", "name": "Detergente (1 kg)", "price": 14.0, "section": "LIMPIEZA", "shelf": "S5", "pick": { "x": 5, "y": 21 } },
+    { "sku": "QC016", "name": "Lavandina (1 L)", "price": 9.0, "section": "LIMPIEZA", "shelf": "S5", "pick": { "x": 5, "y": 22 } },
+    { "sku": "QC017", "name": "Desinfectante (1 L)", "price": 12.0, "section": "LIMPIEZA", "shelf": "S5", "pick": { "x": 5, "y": 23 } },
+
+    { "sku": "QC018", "name": "Papel higiénico (12 rollos)", "price": 30.0, "section": "HIGIENE", "shelf": "S6", "pick": { "x": 11, "y": 21 } },
+    { "sku": "QC019", "name": "Pasta dental", "price": 10.0, "section": "HIGIENE", "shelf": "S6", "pick": { "x": 11, "y": 22 } },
+    { "sku": "QC020", "name": "Shampoo (400 ml)", "price": 22.0, "section": "HIGIENE", "shelf": "S6", "pick": { "x": 11, "y": 23 } },
+
+    { "sku": "QC021", "name": "Leche (1 L)", "price": 7.0, "section": "LACTEOS", "shelf": "S7", "pick": { "x": 21, "y": 4 } },
+    { "sku": "QC022", "name": "Yogurt (1 L)", "price": 11.0, "section": "LACTEOS", "shelf": "S7", "pick": { "x": 21, "y": 5 } },
+    { "sku": "QC023", "name": "Queso fresco (500 g)", "price": 18.0, "section": "LACTEOS", "shelf": "S7", "pick": { "x": 21, "y": 6 } },
+
+    { "sku": "QC024", "name": "Helado (1 L)", "price": 22.0, "section": "LACTEOS", "shelf": "S8", "pick": { "x": 27, "y": 4 } },
+    { "sku": "QC025", "name": "Mantequilla (200 g)", "price": 12.5, "section": "LACTEOS", "shelf": "S8", "pick": { "x": 27, "y": 5 } },
+
+    { "sku": "QC026", "name": "Pollo (1 kg)", "price": 24.0, "section": "CARNES", "shelf": "S9", "pick": { "x": 21, "y": 12 } },
+    { "sku": "QC027", "name": "Carne molida (1 kg)", "price": 38.0, "section": "CARNES", "shelf": "S9", "pick": { "x": 21, "y": 13 } },
+    { "sku": "QC028", "name": "Chuleta de cerdo (1 kg)", "price": 36.0, "section": "CARNES", "shelf": "S9", "pick": { "x": 21, "y": 14 } },
+
+    { "sku": "QC029", "name": "Jamón (200 g)", "price": 14.0, "section": "CARNES", "shelf": "S10", "pick": { "x": 27, "y": 12 } },
+    { "sku": "QC030", "name": "Chorizo (400 g)", "price": 17.0, "section": "CARNES", "shelf": "S10", "pick": { "x": 27, "y": 13 } },
+
+    { "sku": "QC031", "name": "Agua (2 L)", "price": 7.0, "section": "BEBIDAS", "shelf": "S11", "pick": { "x": 21, "y": 21 } },
+    { "sku": "QC032", "name": "Gaseosa (3 L)", "price": 18.0, "section": "BEBIDAS", "shelf": "S11", "pick": { "x": 21, "y": 22 } },
+    { "sku": "QC033", "name": "Jugo (1 L)", "price": 10.0, "section": "BEBIDAS", "shelf": "S11", "pick": { "x": 21, "y": 23 } },
+
+    { "sku": "QC034", "name": "Galletas (paquete)", "price": 7.0, "section": "SNACKS", "shelf": "S12", "pick": { "x": 27, "y": 21 } },
+    { "sku": "QC035", "name": "Papas fritas (bolsa)", "price": 8.5, "section": "SNACKS", "shelf": "S12", "pick": { "x": 27, "y": 22 } },
+    { "sku": "QC036", "name": "Barra de granola", "price": 5.0, "section": "SNACKS", "shelf": "S12", "pick": { "x": 27, "y": 23 } },
+
+    { "sku": "QC037", "name": "Sal (1 kg)", "price": 4.0, "section": "ABARROTES", "shelf": "S13", "pick": { "x": 37, "y": 4 } },
+    { "sku": "QC038", "name": "Mayonesa", "price": 12.0, "section": "ABARROTES", "shelf": "S13", "pick": { "x": 37, "y": 5 } },
+
+    { "sku": "QC039", "name": "Esponjas (pack)", "price": 6.0, "section": "LIMPIEZA", "shelf": "S14", "pick": { "x": 43, "y": 4 } },
+    { "sku": "QC040", "name": "Guantes de limpieza", "price": 10.0, "section": "LIMPIEZA", "shelf": "S14", "pick": { "x": 43, "y": 5 } },
+
+    { "sku": "QC041", "name": "Chocolate (barra)", "price": 6.0, "section": "SNACKS", "shelf": "S15", "pick": { "x": 37, "y": 12 } },
+    { "sku": "QC042", "name": "Maní (bolsa)", "price": 7.5, "section": "SNACKS", "shelf": "S15", "pick": { "x": 37, "y": 13 } },
+
+    { "sku": "QC043", "name": "Desodorante", "price": 18.0, "section": "HIGIENE", "shelf": "S16", "pick": { "x": 43, "y": 12 } },
+    { "sku": "QC044", "name": "Toallas húmedas", "price": 14.0, "section": "HIGIENE", "shelf": "S16", "pick": { "x": 43, "y": 13 } }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "meta": { "name": "Hipermaxi CBBA - Recoleta (Grande)", "city": "Cochabamba", "units": "cells" },
+  "grid": { "width": 60, "height": 34 },
+  "entrance": { "x": 1, "y": 17 },
+  "exit": { "x": 58, "y": 17 },
+  "walls": [ { "type": "border", "note": "Pared perimetral (se maneja en código como no-walkable)" } ],
+  "registers": [
+    { "id": "R1", "cashier_spot": { "x": 54, "y": 9 }, "queue_spot": { "x": 52, "y": 9 } },
+    { "id": "R2", "cashier_spot": { "x": 54, "y": 11 }, "queue_spot": { "x": 52, "y": 11 } },
+    { "id": "R3", "cashier_spot": { "x": 54, "y": 13 }, "queue_spot": { "x": 52, "y": 13 } },
+    { "id": "R4", "cashier_spot": { "x": 54, "y": 21 }, "queue_spot": { "x": 52, "y": 21 } },
+    { "id": "R5", "cashier_spot": { "x": 54, "y": 23 }, "queue_spot": { "x": 52, "y": 23 } }
+  ],
+  "shelves": [
+    { "id": "S1", "rect": { "x": 6, "y": 3, "w": 3, "h": 6 }, "section": "FRUTAS_VERDURAS" },
+    { "id": "S2", "rect": { "x": 12, "y": 3, "w": 3, "h": 6 }, "section": "FRUTAS_VERDURAS" },
+    { "id": "S3", "rect": { "x": 18, "y": 3, "w": 3, "h": 6 }, "section": "FRUTAS_VERDURAS" },
+
+    { "id": "S4", "rect": { "x": 6, "y": 12, "w": 3, "h": 7 }, "section": "ABARROTES" },
+    { "id": "S5", "rect": { "x": 12, "y": 12, "w": 3, "h": 7 }, "section": "ABARROTES" },
+    { "id": "S6", "rect": { "x": 18, "y": 12, "w": 3, "h": 7 }, "section": "ABARROTES" },
+
+    { "id": "S7", "rect": { "x": 28, "y": 3, "w": 3, "h": 6 }, "section": "LACTEOS" },
+    { "id": "S8", "rect": { "x": 34, "y": 3, "w": 3, "h": 6 }, "section": "LACTEOS" },
+
+    { "id": "S9", "rect": { "x": 28, "y": 12, "w": 3, "h": 7 }, "section": "CARNES" },
+    { "id": "S10", "rect": { "x": 34, "y": 12, "w": 3, "h": 7 }, "section": "CARNES" },
+
+    { "id": "S11", "rect": { "x": 6, "y": 23, "w": 3, "h": 7 }, "section": "LIMPIEZA" },
+    { "id": "S12", "rect": { "x": 12, "y": 23, "w": 3, "h": 7 }, "section": "HIGIENE" },
+    { "id": "S13", "rect": { "x": 18, "y": 23, "w": 3, "h": 7 }, "section": "BEBIDAS" },
+
+    { "id": "S14", "rect": { "x": 28, "y": 23, "w": 3, "h": 7 }, "section": "SNACKS" },
+    { "id": "S15", "rect": { "x": 34, "y": 23, "w": 3, "h": 7 }, "section": "SNACKS" },
+
+    { "id": "S16", "rect": { "x": 44, "y": 5, "w": 3, "h": 8 }, "section": "ABARROTES" },
+    { "id": "S17", "rect": { "x": 44, "y": 16, "w": 3, "h": 8 }, "section": "HIGIENE" },
+    { "id": "S18", "rect": { "x": 44, "y": 25, "w": 3, "h": 6 }, "section": "LIMPIEZA" }
+  ],
+  "sections": [
+    { "id": "FRUTAS_VERDURAS", "label": "Frutas y Verduras" },
+    { "id": "ABARROTES", "label": "Abarrotes" },
+    { "id": "LACTEOS", "label": "Lácteos" },
+    { "id": "CARNES", "label": "Carnes y Embutidos" },
+    { "id": "LIMPIEZA", "label": "Limpieza" },
+    { "id": "HIGIENE", "label": "Higiene Personal" },
+    { "id": "BEBIDAS", "label": "Bebidas" },
+    { "id": "SNACKS", "label": "Snacks" }
+  ],
+  "products": [
+    { "sku": "RG001", "name": "Manzana (1 kg)", "price": 12.0, "section": "FRUTAS_VERDURAS", "shelf": "S1", "pick": { "x": 5, "y": 4 } },
+    { "sku": "RG002", "name": "Banana (1 kg)", "price": 10.0, "section": "FRUTAS_VERDURAS", "shelf": "S2", "pick": { "x": 11, "y": 4 } },
+    { "sku": "RG003", "name": "Lechuga (unidad)", "price": 6.0, "section": "FRUTAS_VERDURAS", "shelf": "S3", "pick": { "x": 17, "y": 4 } },
+
+    { "sku": "RG004", "name": "Arroz (1 kg)", "price": 8.5, "section": "ABARROTES", "shelf": "S4", "pick": { "x": 5, "y": 13 } },
+    { "sku": "RG005", "name": "Harina (1 kg)", "price": 8.0, "section": "ABARROTES", "shelf": "S5", "pick": { "x": 11, "y": 13 } },
+    { "sku": "RG006", "name": "Atún en lata", "price": 9.5, "section": "ABARROTES", "shelf": "S6", "pick": { "x": 17, "y": 13 } },
+    { "sku": "RG007", "name": "Café (250 g)", "price": 24.0, "section": "ABARROTES", "shelf": "S16", "pick": { "x": 43, "y": 6 } },
+
+    { "sku": "RG008", "name": "Leche (1 L)", "price": 7.0, "section": "LACTEOS", "shelf": "S7", "pick": { "x": 27, "y": 4 } },
+    { "sku": "RG009", "name": "Queso (500 g)", "price": 18.0, "section": "LACTEOS", "shelf": "S8", "pick": { "x": 33, "y": 4 } },
+
+    { "sku": "RG010", "name": "Pollo (1 kg)", "price": 24.0, "section": "CARNES", "shelf": "S9", "pick": { "x": 27, "y": 13 } },
+    { "sku": "RG011", "name": "Carne molida (1 kg)", "price": 38.0, "section": "CARNES", "shelf": "S10", "pick": { "x": 33, "y": 13 } },
+
+    { "sku": "RG012", "name": "Pasta dental", "price": 10.0, "section": "HIGIENE", "shelf": "S12", "pick": { "x": 11, "y": 24 } },
+    { "sku": "RG013", "name": "Shampoo (400 ml)", "price": 22.0, "section": "HIGIENE", "shelf": "S17", "pick": { "x": 43, "y": 17 } },
+
+    { "sku": "RG014", "name": "Detergente (1 kg)", "price": 14.0, "section": "LIMPIEZA", "shelf": "S11", "pick": { "x": 5, "y": 24 } },
+    { "sku": "RG015", "name": "Lavandina (1 L)", "price": 9.0, "section": "LIMPIEZA", "shelf": "S18", "pick": { "x": 43, "y": 26 } },
+
+    { "sku": "RG016", "name": "Agua (2 L)", "price": 7.0, "section": "BEBIDAS", "shelf": "S13", "pick": { "x": 17, "y": 24 } },
+
+    { "sku": "RG017", "name": "Galletas (paquete)", "price": 7.0, "section": "SNACKS", "shelf": "S14", "pick": { "x": 27, "y": 24 } },
+    { "sku": "RG018", "name": "Papas fritas (bolsa)", "price": 8.5, "section": "SNACKS", "shelf": "S15", "pick": { "x": 33, "y": 24 } }
+  ]
+}

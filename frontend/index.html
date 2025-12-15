@@ -4,192 +4,402 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Supermercado Multiagente</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f172a;
+      --muted:#94a3b8;
+      --text:#e2e8f0;
+      --line:rgba(148,163,184,.18);
+      --pill:rgba(148,163,184,.12);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#070b14, #0b1220 45%, #070b14);
+      color:var(--text);
+      font:14px/1.4 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    }
+    .wrap{max-width:1200px;margin:22px auto;padding:0 14px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px
+    }
+    .title{
+      display:flex;flex-direction:column;gap:4px
+    }
+    h1{font-size:18px;margin:0}
+    .sub{color:var(--muted);font-size:13px}
+    .topActions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .card{
+      background:rgba(15,23,42,.88);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .cardHd{
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+    }
+    .cardBd{padding:14px}
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap:14px;
+    }
+    @media (max-width: 980px){
+      .grid2{grid-template-columns:1fr}
+    }
+    .controls{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:end
+    }
+    label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
+    input, select, button{
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(2,6,23,.55);
+      color:var(--text);
+      padding:10px 12px;
+      outline:none;
+    }
+    input{min-width:220px}
+    select{min-width:140px}
+    button{
+      cursor:pointer;
+      background:rgba(148,163,184,.10);
+    }
+    button:hover{background:rgba(148,163,184,.16)}
+    button:disabled{opacity:.5;cursor:not-allowed}
+    .tabs{
+      display:flex;gap:8px;
+    }
+    .tabBtn{
+      padding:8px 10px;border-radius:12px;border:1px solid var(--line);
+      background:rgba(148,163,184,.10);cursor:pointer;
+      font-weight:600
+    }
+    .tabBtn.active{background:rgba(59,130,246,.18);border-color:rgba(59,130,246,.35)}
+    .views .view{display:none}
+    .views .view.active{display:block}
+
+    /* Stage / canvas */
+    .stageWrap{
+      position:relative;
+      padding:14px;
+      background:rgba(2,6,23,.35);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+    }
+    canvas{display:block;border-radius:14px;max-width:100%}
+    #tooltip{
+      position:absolute;
+      display:none;
+      background:rgba(15,23,42,.95);
+      border:1px solid var(--line);
+      padding:10px 12px;
+      border-radius:12px;
+      box-shadow:var(--shadow);
+      pointer-events:none;
+      max-width:280px;
+      z-index:20;
+    }
+    .muted{color:var(--muted)}
+    .kpis{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+    .kpi{
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(2,6,23,.35);
+    }
+    .kpi .lbl{color:var(--muted);font-size:12px}
+    .kpi .val{font-size:16px;font-weight:700;margin-top:6px}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(148,163,184,.10);
+      font-weight:700;
+      white-space:nowrap;
+    }
+    .logBox{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(2,6,23,.35);
+      padding:10px;
+      max-height:220px;
+      overflow:auto;
+    }
+    .logLine{padding:6px 6px;border-bottom:1px dashed rgba(148,163,184,.18)}
+    .logLine:last-child{border-bottom:none}
+    .row{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    }
+    .spacer{flex:1}
+
+    /* ✅ Compra panel (Mapa) */
+    .purchaseCard{
+      margin-top:12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(2,6,23,.35);
+      padding:12px;
+    }
+    .purchaseHd{
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      margin-bottom:10px;
+    }
+    .progressWrap{
+      width:100%;
+      height:10px;
+      border-radius:999px;
+      background:rgba(148,163,184,.10);
+      border:1px solid rgba(148,163,184,.18);
+      overflow:hidden;
+    }
+    .progressBar{
+      height:100%;
+      width:0%;
+      background:rgba(59,130,246,.65);
+    }
+    .purchaseMeta{
+      display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:8px
+    }
+    .cartBox{
+      margin-top:10px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:rgba(2,6,23,.25);
+      padding:10px;
+      max-height:240px;
+      overflow:auto;
+    }
+    .cartRow{
+      display:flex;justify-content:space-between;gap:10px;
+      padding:7px 6px;
+      border-bottom:1px dashed rgba(148,163,184,.18);
+    }
+    .cartRow:last-child{border-bottom:none}
+    .cartName{font-weight:650}
+    .cartSku{color:var(--muted);font-size:12px}
+    .cartPrice{font-variant-numeric: tabular-nums; white-space:nowrap}
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">🛒</div>
-      <div>
-        <div class="title">Supermercado Multiagente</div>
-        <div class="subtitle">CBBA • Comprador + Cajero • Simulación</div>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Supermercado Multiagente</h1>
+        <div class="sub" id="branchSubtitle">Sucursal: —</div>
       </div>
-    </div>
-
-    <div class="controls">
-      <div class="field">
-        <label>🌐 Backend URL</label>
-        <input id="baseUrl" type="text" value="http://localhost:8000" />
+      <div class="topActions">
+        <span class="pill" id="statusText">—</span>
+        <button id="btnBranch">Cambiar sucursal</button>
       </div>
+    </header>
 
-      <div class="field">
-        <label>🎟️ Vale</label>
-        <input id="voucher" type="number" min="0" step="1" value="120" />
-      </div>
-
-      <div class="field">
-        <label>🧠 Algoritmo</label>
-        <select id="algo">
-          <option value="astar">A*</option>
-          <option value="dijkstra">Dijkstra</option>
-          <option value="bfs">BFS</option>
-        </select>
-      </div>
-
-      <div class="btnrow">
-        <button id="btnReset" class="btn primary">🔁 Reset</button>
-        <button id="btnStep" class="btn">⏭️ Step</button>
-        <button id="btnStep10" class="btn">⏩ +10</button>
-        <button id="btnPlay" class="btn success">▶️ Play</button>
-        <button id="btnPause" class="btn danger" disabled>⏸️ Pause</button>
-      </div>
-
-      <div class="field">
-        <label>⏱️ Velocidad</label>
-        <input id="speed" type="range" min="60" max="1000" step="10" value="200" />
-        <div class="hint"><span id="speedLabel">200</span> ms/step</div>
-      </div>
-    </div>
-  </header>
-
-  <main class="layout">
-    <div class="leftPane">
-      <div class="tabbar">
-        <div class="tabs">
-          <button id="tabMapBtn" class="tabbtn active" type="button">🗺️ Mapa</button>
-          <button id="tabCashierBtn" class="tabbtn" type="button">🧾 Caja</button>
+    <div class="grid2">
+      <!-- Left: Stage + tabs -->
+      <div class="card">
+        <div class="cardHd">
+          <div class="tabs">
+            <button class="tabBtn active" id="tabMapBtn">🗺️ Mapa</button>
+            <button class="tabBtn" id="tabCashierBtn">🧾 Caja</button>
+          </div>
+          <div class="row">
+            <span class="pill" id="pillCashierStatus">🧾 -</span>
+            <span class="pill" id="pillRegister">🏷️ Caja: -</span>
+          </div>
         </div>
-        <div class="statusPill" title="Estado">
-          <span class="dotLive"></span>
-          <span id="statusText">Conectando…</span>
-        </div>
-      </div>
 
-      <!-- MAPA -->
-      <section id="viewMap" class="tabView active">
-        <section class="stageCard">
-          <div class="stageHead">
-            <div class="legend">
-              <span class="chip"><span class="dot entrance"></span>Entrada</span>
-              <span class="chip"><span class="dot exit"></span>Salida</span>
-              <span class="chip"><span class="dot shelf"></span>Estante</span>
-              <span class="chip"><span class="dot product"></span>Producto</span>
-              <span class="chip"><span class="dot buyer"></span>Comprador</span>
-              <span class="chip"><span class="dot cashier"></span>Cajero</span>
-              <span class="chip"><span class="dot goal"></span>Meta</span>
+        <div class="cardBd views">
+          <!-- MAP VIEW -->
+          <div class="view active" id="viewMap">
+            <div class="stageWrap">
+              <canvas id="canvas"></canvas>
+              <div id="tooltip"></div>
+            </div>
+
+            <!-- ✅ NUEVO: Progreso + Carrito (en vista mapa) -->
+            <div class="purchaseCard">
+              <div class="purchaseHd">
+                <div style="font-weight:800">🛒 Compra</div>
+                <div class="muted" id="buyProgressText">0% (0.00/0.00)</div>
+              </div>
+              <div class="progressWrap">
+                <div class="progressBar" id="buyProgressBar"></div>
+              </div>
+              <div class="purchaseMeta">
+                <div>Vale: <b id="buyVoucher">0.00</b></div>
+                <div>Gastado: <b id="buySpent">0.00</b></div>
+                <div>Restante: <b id="buyRemain">0.00</b></div>
+                <div>Total ítems: <b id="buyItems">0</b></div>
+              </div>
+
+              <div class="cartBox" id="mapCartBox">—</div>
+              <div class="muted" style="margin-top:8px">*El carrito se actualiza en tiempo real mientras el comprador compra.</div>
             </div>
           </div>
 
-          <div class="stageWrap">
-            <canvas id="canvas" width="800" height="500"></canvas>
-            <div id="tooltip" class="tooltip" style="display:none;"></div>
-          </div>
-        </section>
-      </section>
+          <!-- CASHIER VIEW -->
+          <div class="view" id="viewCashier">
+            <div class="kpis">
+              <div class="kpi">
+                <div class="lbl">Estado Cajero</div>
+                <div class="val" id="stCashierStatus">-</div>
+              </div>
+              <div class="kpi">
+                <div class="lbl">Caja</div>
+                <div class="val" id="stCashierReg">-</div>
+              </div>
+              <div class="kpi">
+                <div class="lbl">Escaneados</div>
+                <div class="val" id="stCashierScanned">-</div>
+              </div>
+              <div class="kpi">
+                <div class="lbl">Subtotal</div>
+                <div class="val" id="stCashierSubtotal">-</div>
+              </div>
+              <div class="kpi">
+                <div class="lbl">Canjeado</div>
+                <div class="val" id="stCashierRedeemed">-</div>
+              </div>
+              <div class="kpi">
+                <div class="lbl">Restante vale</div>
+                <div class="val" id="stCashierRemaining">-</div>
+              </div>
+            </div>
 
-      <!-- CAJA -->
-      <section id="viewCashier" class="tabView">
-        <section class="stageCard">
-          <div class="stageHead">
+            <div style="margin-top:10px" class="kpi">
+              <div class="lbl">Último escaneo:</div>
+              <div class="val" style="font-size:14px" id="stCashierLast">-</div>
+            </div>
+
+            <div style="margin-top:12px" class="kpi">
+              <div class="lbl">Progreso caja</div>
+              <div class="progressWrap" style="margin-top:10px">
+                <div class="progressBar" id="cashierProgressBar"></div>
+              </div>
+              <div class="muted" id="stCashierProgressText" style="margin-top:8px">-</div>
+            </div>
+
+            <div style="margin-top:12px" class="kpi">
+              <div class="lbl">Carrito</div>
+              <div class="logBox" id="cartList">—</div>
+            </div>
+
+            <div style="margin-top:12px" class="kpi">
+              <div class="lbl">Log de caja</div>
+              <div class="logBox" id="cashierLog">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Controls + buyer stats -->
+      <div class="card">
+        <div class="cardHd">
+          <div style="font-weight:800">Controles</div>
+        </div>
+        <div class="cardBd">
+          <div class="controls">
             <div>
-              <div class="stageTitle">🧾 Interacción con el Cajero</div>
-              <div class="tiny">Escanea 1 producto por step y luego canjea el vale.</div>
+              <label>Backend URL</label>
+              <input id="baseUrl" placeholder="http://localhost:8000" />
             </div>
-            <div class="pillRow">
-              <span class="pill" id="pillCashierStatus">🟦 idle</span>
-              <span class="pill soft" id="pillRegister">🏷️ Caja: -</span>
+            <div>
+              <label>Vale (Bs)</label>
+              <input id="voucher" type="number" value="120" min="0" />
+            </div>
+            <div>
+              <label>Algoritmo</label>
+              <select id="algo">
+                <option value="astar">A*</option>
+                <option value="bfs">BFS</option>
+                <option value="dfs">DFS</option>
+                <option value="greedy">Greedy</option>
+              </select>
+            </div>
+
+            <div class="row" style="gap:8px">
+              <button id="btnReset">Reset</button>
+              <button id="btnStep">Step</button>
+              <button id="btnStep10">Step x10</button>
+              <button id="btnPlay">Play</button>
+              <button id="btnPause" disabled>Pause</button>
+            </div>
+
+            <div style="width:100%">
+              <div class="row" style="margin-top:8px">
+                <label style="margin:0">Velocidad</label>
+                <span class="spacer"></span>
+                <span class="muted"><span id="speedLabel">200</span> ms</span>
+              </div>
+              <input id="speed" type="range" min="50" max="1200" step="50" value="200" style="width:100%" />
+            </div>
+          </div>
+
+          <div style="margin-top:14px" class="kpis">
+            <div class="kpi">
+              <div class="lbl">Step</div>
+              <div class="val" id="stStep">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Posición comprador</div>
+              <div class="val" id="stBuyerPos">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Vale</div>
+              <div class="val" id="stVoucher">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Restante</div>
+              <div class="val" id="stRemaining">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Gastado</div>
+              <div class="val" id="stSpent">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">% gastado</div>
+              <div class="val" id="stSpentPct">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Ítems</div>
+              <div class="val" id="stItems">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Pasos movidos</div>
+              <div class="val" id="stBuyerSteps">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Pagó</div>
+              <div class="val" id="stPaid">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Goal</div>
+              <div class="val" id="stGoal">-</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Algoritmo</div>
+              <div class="val" id="stAlgo">-</div>
             </div>
           </div>
 
-          <div class="stageWrap">
-            <div class="checkoutLayout">
-              <!-- RESUMEN -->
-              <section class="card innerCard">
-                <div class="cardTitle">📌 Resumen</div>
-
-                <!-- ✅ Estos dos IDs son los que faltaban -->
-                <div class="kv" style="margin-bottom:10px;">
-                  <div class="k">Estado</div><div class="v" id="stCashierStatus">-</div>
-                  <div class="k">Caja</div><div class="v" id="stCashierReg">-</div>
-                </div>
-
-                <div class="moneyGrid">
-                  <div class="moneyBox">
-                    <div class="moneyLabel">Subtotal</div>
-                    <div class="moneyValue" id="stCashierSubtotal">-</div>
-                  </div>
-
-                  <div class="moneyBox">
-                    <div class="moneyLabel">Canjeado</div>
-                    <div class="moneyValue" id="stCashierRedeemed">-</div>
-                  </div>
-
-                  <div class="moneyBox">
-                    <div class="moneyLabel">Restante vale</div>
-                    <div class="moneyValue" id="stCashierRemaining">-</div>
-                  </div>
-                </div>
-
-                <div class="progressWrap">
-                  <div class="progressTop">
-                    <span class="tiny">📊 Progreso de canje</span>
-                    <span class="tiny" id="stCashierProgressText">-</span>
-                  </div>
-                  <div class="progressBar">
-                    <div class="progressFill" id="cashierProgressBar"></div>
-                  </div>
-                </div>
-
-                <div class="kv" style="margin-top:12px;">
-                  <div class="k">Escaneados</div><div class="v" id="stCashierScanned">-</div>
-                  <div class="k">Último</div><div class="v" id="stCashierLast">-</div>
-                </div>
-              </section>
-
-              <!-- CARRITO -->
-              <section class="card innerCard">
-                <div class="cardTitle">🛒 Carrito</div>
-                <div class="tiny">Lista completa (SKU • nombre • precio). Se marca lo ya escaneado.</div>
-                <div class="list fancyList" id="cartList">—</div>
-              </section>
-
-              <!-- TIMELINE -->
-              <section class="card innerCard checkoutWide">
-                <div class="cardTitle">🧾 Registro en vivo (scan_log)</div>
-                <div class="tiny">Aquí ves “lo que se va comprando” mientras el cajero escanea.</div>
-                <div class="list timeline" id="cashierLog">—</div>
-              </section>
-            </div>
+          <div style="margin-top:12px" class="kpi">
+            <div class="lbl">Log</div>
+            <div class="logBox" id="log">—</div>
           </div>
-        </section>
-      </section>
-    </div>
-
-    <!-- SIDEBAR -->
-    <aside class="side">
-      <section class="card">
-        <h3>📊 Estado</h3>
-        <div class="kv">
-          <div class="k">Step</div><div class="v" id="stStep">-</div>
-          <div class="k">Pos Comprador</div><div class="v" id="stBuyerPos">-</div>
-          <div class="k">Vale</div><div class="v" id="stVoucher">-</div>
-          <div class="k">Restante</div><div class="v" id="stRemaining">-</div>
-          <div class="k">Gastado</div><div class="v" id="stSpent">-</div>
-          <div class="k">% Usado</div><div class="v" id="stSpentPct">-</div>
-          <div class="k">Items</div><div class="v" id="stItems">-</div>
-          <div class="k">Pasos</div><div class="v" id="stBuyerSteps">-</div>
-          <div class="k">Pagado</div><div class="v" id="stPaid">-</div>
-          <div class="k">Objetivo</div><div class="v" id="stGoal">-</div>
-          <div class="k">Algoritmo</div><div class="v" id="stAlgo">-</div>
         </div>
-      </section>
-
-      <section class="card">
-        <h3>🗒️ Mensajes</h3>
-        <div id="log" class="log">—</div>
-      </section>
-    </aside>
-  </main>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
