@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Supermercado Multiagente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🛒</div>
+      <div>
+        <div class="title">Supermercado Multiagente</div>
+        <div class="subtitle">CBBA • Comprador + Cajero • Simulación</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="field">
+        <label>🌐 Backend URL</label>
+        <input id="baseUrl" type="text" value="http://localhost:8000" />
+      </div>
+
+      <div class="field">
+        <label>🎟️ Vale</label>
+        <input id="voucher" type="number" min="0" step="1" value="120" />
+      </div>
+
+      <div class="field">
+        <label>🧠 Algoritmo</label>
+        <select id="algo">
+          <option value="astar">A*</option>
+          <option value="dijkstra">Dijkstra</option>
+          <option value="bfs">BFS</option>
+        </select>
+      </div>
+
+      <div class="btnrow">
+        <button id="btnReset" class="btn primary">🔁 Reset</button>
+        <button id="btnStep" class="btn">⏭️ Step</button>
+        <button id="btnStep10" class="btn">⏩ +10</button>
+        <button id="btnPlay" class="btn success">▶️ Play</button>
+        <button id="btnPause" class="btn danger" disabled>⏸️ Pause</button>
+      </div>
+
+      <div class="field">
+        <label>⏱️ Velocidad</label>
+        <input id="speed" type="range" min="60" max="1000" step="10" value="200" />
+        <div class="hint"><span id="speedLabel">200</span> ms/step</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <div class="leftPane">
+      <div class="tabbar">
+        <div class="tabs">
+          <button id="tabMapBtn" class="tabbtn active" type="button">🗺️ Mapa</button>
+          <button id="tabCashierBtn" class="tabbtn" type="button">🧾 Caja</button>
+        </div>
+        <div class="statusPill" title="Estado">
+          <span class="dotLive"></span>
+          <span id="statusText">Conectando…</span>
+        </div>
+      </div>
+
+      <!-- MAPA -->
+      <section id="viewMap" class="tabView active">
+        <section class="stageCard">
+          <div class="stageHead">
+            <div class="legend">
+              <span class="chip"><span class="dot entrance"></span>Entrada</span>
+              <span class="chip"><span class="dot exit"></span>Salida</span>
+              <span class="chip"><span class="dot shelf"></span>Estante</span>
+              <span class="chip"><span class="dot product"></span>Producto</span>
+              <span class="chip"><span class="dot buyer"></span>Comprador</span>
+              <span class="chip"><span class="dot cashier"></span>Cajero</span>
+              <span class="chip"><span class="dot goal"></span>Meta</span>
+            </div>
+          </div>
+
+          <div class="stageWrap">
+            <canvas id="canvas" width="800" height="500"></canvas>
+            <div id="tooltip" class="tooltip" style="display:none;"></div>
+          </div>
+        </section>
+      </section>
+
+      <!-- CAJA -->
+      <section id="viewCashier" class="tabView">
+        <section class="stageCard">
+          <div class="stageHead">
+            <div>
+              <div class="stageTitle">🧾 Interacción con el Cajero</div>
+              <div class="tiny">Escanea 1 producto por step y luego canjea el vale.</div>
+            </div>
+            <div class="pillRow">
+              <span class="pill" id="pillCashierStatus">🟦 idle</span>
+              <span class="pill soft" id="pillRegister">🏷️ Caja: -</span>
+            </div>
+          </div>
+
+          <div class="stageWrap">
+            <div class="checkoutLayout">
+              <!-- RESUMEN -->
+              <section class="card innerCard">
+                <div class="cardTitle">📌 Resumen</div>
+
+                <!-- ✅ Estos dos IDs son los que faltaban -->
+                <div class="kv" style="margin-bottom:10px;">
+                  <div class="k">Estado</div><div class="v" id="stCashierStatus">-</div>
+                  <div class="k">Caja</div><div class="v" id="stCashierReg">-</div>
+                </div>
+
+                <div class="moneyGrid">
+                  <div class="moneyBox">
+                    <div class="moneyLabel">Subtotal</div>
+                    <div class="moneyValue" id="stCashierSubtotal">-</div>
+                  </div>
+
+                  <div class="moneyBox">
+                    <div class="moneyLabel">Canjeado</div>
+                    <div class="moneyValue" id="stCashierRedeemed">-</div>
+                  </div>
+
+                  <div class="moneyBox">
+                    <div class="moneyLabel">Restante vale</div>
+                    <div class="moneyValue" id="stCashierRemaining">-</div>
+                  </div>
+                </div>
+
+                <div class="progressWrap">
+                  <div class="progressTop">
+                    <span class="tiny">📊 Progreso de canje</span>
+                    <span class="tiny" id="stCashierProgressText">-</span>
+                  </div>
+                  <div class="progressBar">
+                    <div class="progressFill" id="cashierProgressBar"></div>
+                  </div>
+                </div>
+
+                <div class="kv" style="margin-top:12px;">
+                  <div class="k">Escaneados</div><div class="v" id="stCashierScanned">-</div>
+                  <div class="k">Último</div><div class="v" id="stCashierLast">-</div>
+                </div>
+              </section>
+
+              <!-- CARRITO -->
+              <section class="card innerCard">
+                <div class="cardTitle">🛒 Carrito</div>
+                <div class="tiny">Lista completa (SKU • nombre • precio). Se marca lo ya escaneado.</div>
+                <div class="list fancyList" id="cartList">—</div>
+              </section>
+
+              <!-- TIMELINE -->
+              <section class="card innerCard checkoutWide">
+                <div class="cardTitle">🧾 Registro en vivo (scan_log)</div>
+                <div class="tiny">Aquí ves “lo que se va comprando” mientras el cajero escanea.</div>
+                <div class="list timeline" id="cashierLog">—</div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="side">
+      <section class="card">
+        <h3>📊 Estado</h3>
+        <div class="kv">
+          <div class="k">Step</div><div class="v" id="stStep">-</div>
+          <div class="k">Pos Comprador</div><div class="v" id="stBuyerPos">-</div>
+          <div class="k">Vale</div><div class="v" id="stVoucher">-</div>
+          <div class="k">Restante</div><div class="v" id="stRemaining">-</div>
+          <div class="k">Gastado</div><div class="v" id="stSpent">-</div>
+          <div class="k">% Usado</div><div class="v" id="stSpentPct">-</div>
+          <div class="k">Items</div><div class="v" id="stItems">-</div>
+          <div class="k">Pasos</div><div class="v" id="stBuyerSteps">-</div>
+          <div class="k">Pagado</div><div class="v" id="stPaid">-</div>
+          <div class="k">Objetivo</div><div class="v" id="stGoal">-</div>
+          <div class="k">Algoritmo</div><div class="v" id="stAlgo">-</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>🗒️ Mensajes</h3>
+        <div id="log" class="log">—</div>
+      </section>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

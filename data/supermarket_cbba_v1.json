@@ -1,0 +1,779 @@
+{
+  "meta": {
+    "name": "Supermercado CBBA v1",
+    "city": "Cochabamba",
+    "units": "cells"
+  },
+  "grid": {
+    "width": 40,
+    "height": 25
+  },
+  "entrance": {
+    "x": 1,
+    "y": 12
+  },
+  "exit": {
+    "x": 38,
+    "y": 12
+  },
+  "walls": [
+    {
+      "type": "border",
+      "note": "Pared perimetral (se maneja en código como no-walkable)"
+    }
+  ],
+  "registers": [
+    {
+      "id": "R1",
+      "cashier_spot": {
+        "x": 34,
+        "y": 8
+      },
+      "queue_spot": {
+        "x": 32,
+        "y": 8
+      }
+    },
+    {
+      "id": "R2",
+      "cashier_spot": {
+        "x": 34,
+        "y": 10
+      },
+      "queue_spot": {
+        "x": 32,
+        "y": 10
+      }
+    },
+    {
+      "id": "R3",
+      "cashier_spot": {
+        "x": 34,
+        "y": 14
+      },
+      "queue_spot": {
+        "x": 32,
+        "y": 14
+      }
+    },
+    {
+      "id": "R4",
+      "cashier_spot": {
+        "x": 34,
+        "y": 16
+      },
+      "queue_spot": {
+        "x": 32,
+        "y": 16
+      }
+    }
+  ],
+  "shelves": [
+    {
+      "id": "S1",
+      "rect": {
+        "x": 6,
+        "y": 3,
+        "w": 3,
+        "h": 6
+      },
+      "section": "FRUTAS_VERDURAS"
+    },
+    {
+      "id": "S2",
+      "rect": {
+        "x": 12,
+        "y": 3,
+        "w": 3,
+        "h": 6
+      },
+      "section": "FRUTAS_VERDURAS"
+    },
+    {
+      "id": "S3",
+      "rect": {
+        "x": 6,
+        "y": 11,
+        "w": 3,
+        "h": 6
+      },
+      "section": "ABARROTES"
+    },
+    {
+      "id": "S4",
+      "rect": {
+        "x": 12,
+        "y": 11,
+        "w": 3,
+        "h": 6
+      },
+      "section": "ABARROTES"
+    },
+    {
+      "id": "S5",
+      "rect": {
+        "x": 18,
+        "y": 3,
+        "w": 3,
+        "h": 6
+      },
+      "section": "LACTEOS"
+    },
+    {
+      "id": "S6",
+      "rect": {
+        "x": 24,
+        "y": 3,
+        "w": 3,
+        "h": 6
+      },
+      "section": "LACTEOS"
+    },
+    {
+      "id": "S7",
+      "rect": {
+        "x": 18,
+        "y": 11,
+        "w": 3,
+        "h": 6
+      },
+      "section": "CARNES"
+    },
+    {
+      "id": "S8",
+      "rect": {
+        "x": 24,
+        "y": 11,
+        "w": 3,
+        "h": 6
+      },
+      "section": "CARNES"
+    },
+    {
+      "id": "S9",
+      "rect": {
+        "x": 6,
+        "y": 19,
+        "w": 3,
+        "h": 4
+      },
+      "section": "LIMPIEZA"
+    },
+    {
+      "id": "S10",
+      "rect": {
+        "x": 12,
+        "y": 19,
+        "w": 3,
+        "h": 4
+      },
+      "section": "HIGIENE"
+    },
+    {
+      "id": "S11",
+      "rect": {
+        "x": 18,
+        "y": 19,
+        "w": 3,
+        "h": 4
+      },
+      "section": "BEBIDAS"
+    },
+    {
+      "id": "S12",
+      "rect": {
+        "x": 24,
+        "y": 19,
+        "w": 3,
+        "h": 4
+      },
+      "section": "SNACKS"
+    }
+  ],
+  "sections": [
+    {
+      "id": "FRUTAS_VERDURAS",
+      "label": "Frutas y Verduras"
+    },
+    {
+      "id": "ABARROTES",
+      "label": "Abarrotes"
+    },
+    {
+      "id": "LACTEOS",
+      "label": "Lácteos"
+    },
+    {
+      "id": "CARNES",
+      "label": "Carnes y Embutidos"
+    },
+    {
+      "id": "LIMPIEZA",
+      "label": "Limpieza"
+    },
+    {
+      "id": "HIGIENE",
+      "label": "Higiene Personal"
+    },
+    {
+      "id": "BEBIDAS",
+      "label": "Bebidas"
+    },
+    {
+      "id": "SNACKS",
+      "label": "Snacks"
+    }
+  ],
+  "products": [
+    {
+      "sku": "P001",
+      "name": "Manzana (1 kg)",
+      "price": 12.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S1",
+      "pick": {
+        "x": 5,
+        "y": 4
+      }
+    },
+    {
+      "sku": "P002",
+      "name": "Banana (1 kg)",
+      "price": 10.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S1",
+      "pick": {
+        "x": 5,
+        "y": 5
+      }
+    },
+    {
+      "sku": "P003",
+      "name": "Naranja (1 kg)",
+      "price": 11.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S1",
+      "pick": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    {
+      "sku": "P004",
+      "name": "Tomate (1 kg)",
+      "price": 9.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S1",
+      "pick": {
+        "x": 5,
+        "y": 7
+      }
+    },
+    {
+      "sku": "P005",
+      "name": "Cebolla (1 kg)",
+      "price": 8.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S1",
+      "pick": {
+        "x": 5,
+        "y": 8
+      }
+    },
+    {
+      "sku": "P006",
+      "name": "Papa (2 kg)",
+      "price": 14.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S2",
+      "pick": {
+        "x": 11,
+        "y": 4
+      }
+    },
+    {
+      "sku": "P007",
+      "name": "Zanahoria (1 kg)",
+      "price": 7.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S2",
+      "pick": {
+        "x": 11,
+        "y": 5
+      }
+    },
+    {
+      "sku": "P008",
+      "name": "Lechuga (unidad)",
+      "price": 6.0,
+      "section": "FRUTAS_VERDURAS",
+      "shelf": "S2",
+      "pick": {
+        "x": 11,
+        "y": 6
+      }
+    },
+    {
+      "sku": "P009",
+      "name": "Arroz (1 kg)",
+      "price": 8.5,
+      "section": "ABARROTES",
+      "shelf": "S3",
+      "pick": {
+        "x": 5,
+        "y": 12
+      }
+    },
+    {
+      "sku": "P010",
+      "name": "Fideo (500 g)",
+      "price": 6.5,
+      "section": "ABARROTES",
+      "shelf": "S3",
+      "pick": {
+        "x": 5,
+        "y": 13
+      }
+    },
+    {
+      "sku": "P011",
+      "name": "Azúcar (1 kg)",
+      "price": 7.5,
+      "section": "ABARROTES",
+      "shelf": "S3",
+      "pick": {
+        "x": 5,
+        "y": 14
+      }
+    },
+    {
+      "sku": "P012",
+      "name": "Harina (1 kg)",
+      "price": 8.0,
+      "section": "ABARROTES",
+      "shelf": "S3",
+      "pick": {
+        "x": 5,
+        "y": 15
+      }
+    },
+    {
+      "sku": "P013",
+      "name": "Sal (1 kg)",
+      "price": 4.0,
+      "section": "ABARROTES",
+      "shelf": "S3",
+      "pick": {
+        "x": 5,
+        "y": 16
+      }
+    },
+    {
+      "sku": "P014",
+      "name": "Aceite (1 L)",
+      "price": 16.0,
+      "section": "ABARROTES",
+      "shelf": "S4",
+      "pick": {
+        "x": 11,
+        "y": 12
+      }
+    },
+    {
+      "sku": "P015",
+      "name": "Atún en lata",
+      "price": 9.5,
+      "section": "ABARROTES",
+      "shelf": "S4",
+      "pick": {
+        "x": 11,
+        "y": 13
+      }
+    },
+    {
+      "sku": "P016",
+      "name": "Sardina en lata",
+      "price": 8.5,
+      "section": "ABARROTES",
+      "shelf": "S4",
+      "pick": {
+        "x": 11,
+        "y": 14
+      }
+    },
+    {
+      "sku": "P017",
+      "name": "Salsa de tomate",
+      "price": 7.0,
+      "section": "ABARROTES",
+      "shelf": "S4",
+      "pick": {
+        "x": 11,
+        "y": 15
+      }
+    },
+    {
+      "sku": "P018",
+      "name": "Mayonesa",
+      "price": 12.0,
+      "section": "ABARROTES",
+      "shelf": "S4",
+      "pick": {
+        "x": 11,
+        "y": 16
+      }
+    },
+    {
+      "sku": "P019",
+      "name": "Leche (1 L)",
+      "price": 7.0,
+      "section": "LACTEOS",
+      "shelf": "S5",
+      "pick": {
+        "x": 17,
+        "y": 4
+      }
+    },
+    {
+      "sku": "P020",
+      "name": "Yogurt (1 L)",
+      "price": 11.0,
+      "section": "LACTEOS",
+      "shelf": "S5",
+      "pick": {
+        "x": 17,
+        "y": 5
+      }
+    },
+    {
+      "sku": "P021",
+      "name": "Queso fresco (500 g)",
+      "price": 18.0,
+      "section": "LACTEOS",
+      "shelf": "S5",
+      "pick": {
+        "x": 17,
+        "y": 6
+      }
+    },
+    {
+      "sku": "P022",
+      "name": "Mantequilla (200 g)",
+      "price": 12.5,
+      "section": "LACTEOS",
+      "shelf": "S5",
+      "pick": {
+        "x": 17,
+        "y": 7
+      }
+    },
+    {
+      "sku": "P023",
+      "name": "Crema de leche",
+      "price": 10.0,
+      "section": "LACTEOS",
+      "shelf": "S6",
+      "pick": {
+        "x": 23,
+        "y": 4
+      }
+    },
+    {
+      "sku": "P024",
+      "name": "Helado (1 L)",
+      "price": 22.0,
+      "section": "LACTEOS",
+      "shelf": "S6",
+      "pick": {
+        "x": 23,
+        "y": 5
+      }
+    },
+    {
+      "sku": "P025",
+      "name": "Pollo (1 kg)",
+      "price": 24.0,
+      "section": "CARNES",
+      "shelf": "S7",
+      "pick": {
+        "x": 17,
+        "y": 12
+      }
+    },
+    {
+      "sku": "P026",
+      "name": "Carne molida (1 kg)",
+      "price": 38.0,
+      "section": "CARNES",
+      "shelf": "S7",
+      "pick": {
+        "x": 17,
+        "y": 13
+      }
+    },
+    {
+      "sku": "P027",
+      "name": "Chuleta de cerdo (1 kg)",
+      "price": 36.0,
+      "section": "CARNES",
+      "shelf": "S7",
+      "pick": {
+        "x": 17,
+        "y": 14
+      }
+    },
+    {
+      "sku": "P028",
+      "name": "Salchicha (400 g)",
+      "price": 16.0,
+      "section": "CARNES",
+      "shelf": "S7",
+      "pick": {
+        "x": 17,
+        "y": 15
+      }
+    },
+    {
+      "sku": "P029",
+      "name": "Jamón (200 g)",
+      "price": 14.0,
+      "section": "CARNES",
+      "shelf": "S8",
+      "pick": {
+        "x": 23,
+        "y": 12
+      }
+    },
+    {
+      "sku": "P030",
+      "name": "Chorizo (400 g)",
+      "price": 17.0,
+      "section": "CARNES",
+      "shelf": "S8",
+      "pick": {
+        "x": 23,
+        "y": 13
+      }
+    },
+    {
+      "sku": "P031",
+      "name": "Detergente (1 kg)",
+      "price": 14.0,
+      "section": "LIMPIEZA",
+      "shelf": "S9",
+      "pick": {
+        "x": 5,
+        "y": 20
+      }
+    },
+    {
+      "sku": "P032",
+      "name": "Lavandina (1 L)",
+      "price": 9.0,
+      "section": "LIMPIEZA",
+      "shelf": "S9",
+      "pick": {
+        "x": 5,
+        "y": 21
+      }
+    },
+    {
+      "sku": "P033",
+      "name": "Desinfectante (1 L)",
+      "price": 12.0,
+      "section": "LIMPIEZA",
+      "shelf": "S9",
+      "pick": {
+        "x": 5,
+        "y": 22
+      }
+    },
+    {
+      "sku": "P034",
+      "name": "Esponjas (pack)",
+      "price": 6.0,
+      "section": "LIMPIEZA",
+      "shelf": "S9",
+      "pick": {
+        "x": 5,
+        "y": 23
+      }
+    },
+    {
+      "sku": "P035",
+      "name": "Papel higiénico (6 rollos)",
+      "price": 18.0,
+      "section": "HIGIENE",
+      "shelf": "S10",
+      "pick": {
+        "x": 11,
+        "y": 20
+      }
+    },
+    {
+      "sku": "P036",
+      "name": "Pasta dental",
+      "price": 10.0,
+      "section": "HIGIENE",
+      "shelf": "S10",
+      "pick": {
+        "x": 11,
+        "y": 21
+      }
+    },
+    {
+      "sku": "P037",
+      "name": "Jabón de baño",
+      "price": 6.5,
+      "section": "HIGIENE",
+      "shelf": "S10",
+      "pick": {
+        "x": 11,
+        "y": 22
+      }
+    },
+    {
+      "sku": "P038",
+      "name": "Shampoo (400 ml)",
+      "price": 22.0,
+      "section": "HIGIENE",
+      "shelf": "S10",
+      "pick": {
+        "x": 11,
+        "y": 23
+      }
+    },
+    {
+      "sku": "P039",
+      "name": "Toallas húmedas",
+      "price": 14.0,
+      "section": "HIGIENE",
+      "shelf": "S10",
+      "pick": {
+        "x": 10,
+        "y": 21
+      }
+    },
+    {
+      "sku": "P040",
+      "name": "Desodorante",
+      "price": 18.0,
+      "section": "HIGIENE",
+      "shelf": "S10",
+      "pick": {
+        "x": 10,
+        "y": 22
+      }
+    },
+    {
+      "sku": "P041",
+      "name": "Agua (2 L)",
+      "price": 7.0,
+      "section": "BEBIDAS",
+      "shelf": "S11",
+      "pick": {
+        "x": 17,
+        "y": 20
+      }
+    },
+    {
+      "sku": "P042",
+      "name": "Gaseosa (2 L)",
+      "price": 12.0,
+      "section": "BEBIDAS",
+      "shelf": "S11",
+      "pick": {
+        "x": 17,
+        "y": 21
+      }
+    },
+    {
+      "sku": "P043",
+      "name": "Jugo (1 L)",
+      "price": 10.0,
+      "section": "BEBIDAS",
+      "shelf": "S11",
+      "pick": {
+        "x": 17,
+        "y": 22
+      }
+    },
+    {
+      "sku": "P044",
+      "name": "Energizante (lata)",
+      "price": 9.0,
+      "section": "BEBIDAS",
+      "shelf": "S11",
+      "pick": {
+        "x": 17,
+        "y": 23
+      }
+    },
+    {
+      "sku": "P045",
+      "name": "Galletas (paquete)",
+      "price": 7.0,
+      "section": "SNACKS",
+      "shelf": "S12",
+      "pick": {
+        "x": 23,
+        "y": 20
+      }
+    },
+    {
+      "sku": "P046",
+      "name": "Papas fritas (bolsa)",
+      "price": 8.5,
+      "section": "SNACKS",
+      "shelf": "S12",
+      "pick": {
+        "x": 23,
+        "y": 21
+      }
+    },
+    {
+      "sku": "P047",
+      "name": "Chocolate (barra)",
+      "price": 6.0,
+      "section": "SNACKS",
+      "shelf": "S12",
+      "pick": {
+        "x": 23,
+        "y": 22
+      }
+    },
+    {
+      "sku": "P048",
+      "name": "Maní (bolsa)",
+      "price": 7.5,
+      "section": "SNACKS",
+      "shelf": "S12",
+      "pick": {
+        "x": 23,
+        "y": 23
+      }
+    },
+    {
+      "sku": "P049",
+      "name": "Cereal (500 g)",
+      "price": 22.0,
+      "section": "SNACKS",
+      "shelf": "S12",
+      "pick": {
+        "x": 22,
+        "y": 21
+      }
+    },
+    {
+      "sku": "P050",
+      "name": "Barra de granola",
+      "price": 5.0,
+      "section": "SNACKS",
+      "shelf": "S12",
+      "pick": {
+        "x": 22,
+        "y": 22
+      }
+    }
+  ]
+}  

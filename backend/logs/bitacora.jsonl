@@ -1,0 +1,61 @@
+{"ts": "2025-12-14T20:33:47.528889Z", "event": "pick", "world_step": 5, "buyer_steps": 4, "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "remaining": 111.5, "pos": {"x": 5, "y": 12}}
+{"ts": "2025-12-14T20:33:47.829426Z", "event": "pick", "world_step": 6, "buyer_steps": 5, "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "remaining": 105.0, "pos": {"x": 5, "y": 13}}
+{"ts": "2025-12-14T20:33:48.127515Z", "event": "pick", "world_step": 7, "buyer_steps": 6, "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "remaining": 97.5, "pos": {"x": 5, "y": 14}}
+{"ts": "2025-12-14T20:33:48.439051Z", "event": "pick", "world_step": 8, "buyer_steps": 7, "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "remaining": 89.5, "pos": {"x": 5, "y": 15}}
+{"ts": "2025-12-14T20:33:48.721376Z", "event": "pick", "world_step": 9, "buyer_steps": 8, "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "remaining": 85.5, "pos": {"x": 5, "y": 16}}
+{"ts": "2025-12-14T20:33:50.826317Z", "event": "pick", "world_step": 16, "buyer_steps": 15, "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "remaining": 79.5, "pos": {"x": 5, "y": 23}}
+{"ts": "2025-12-14T20:33:52.931097Z", "event": "pick", "world_step": 23, "buyer_steps": 22, "sku": "P037", "name": "Jabón de baño", "price": 6.5, "remaining": 73.0, "pos": {"x": 11, "y": 22}}
+{"ts": "2025-12-14T20:33:55.022378Z", "event": "pick", "world_step": 30, "buyer_steps": 29, "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "remaining": 66.0, "pos": {"x": 11, "y": 15}}
+{"ts": "2025-12-14T20:33:57.732528Z", "event": "pick", "world_step": 39, "buyer_steps": 38, "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "pos": {"x": 11, "y": 6}}
+{"ts": "2025-12-14T20:33:58.023816Z", "event": "pick", "world_step": 40, "buyer_steps": 39, "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "pos": {"x": 11, "y": 5}}
+{"ts": "2025-12-14T20:34:10.354622Z", "event": "pick", "world_step": 5, "buyer_steps": 4, "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "remaining": 111.5, "pos": {"x": 5, "y": 12}}
+{"ts": "2025-12-14T20:34:10.543285Z", "event": "pick", "world_step": 6, "buyer_steps": 5, "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "remaining": 105.0, "pos": {"x": 5, "y": 13}}
+{"ts": "2025-12-14T20:34:10.747899Z", "event": "pick", "world_step": 7, "buyer_steps": 6, "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "remaining": 97.5, "pos": {"x": 5, "y": 14}}
+{"ts": "2025-12-14T20:34:10.953083Z", "event": "pick", "world_step": 8, "buyer_steps": 7, "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "remaining": 89.5, "pos": {"x": 5, "y": 15}}
+{"ts": "2025-12-14T20:34:11.154060Z", "event": "pick", "world_step": 9, "buyer_steps": 8, "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "remaining": 85.5, "pos": {"x": 5, "y": 16}}
+{"ts": "2025-12-14T20:34:12.543576Z", "event": "pick", "world_step": 16, "buyer_steps": 15, "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "remaining": 79.5, "pos": {"x": 5, "y": 23}}
+{"ts": "2025-12-14T20:34:13.943457Z", "event": "pick", "world_step": 23, "buyer_steps": 22, "sku": "P037", "name": "Jabón de baño", "price": 6.5, "remaining": 73.0, "pos": {"x": 11, "y": 22}}
+{"ts": "2025-12-14T20:34:15.347732Z", "event": "pick", "world_step": 30, "buyer_steps": 29, "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "remaining": 66.0, "pos": {"x": 11, "y": 15}}
+{"ts": "2025-12-14T20:34:17.149893Z", "event": "pick", "world_step": 39, "buyer_steps": 38, "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "pos": {"x": 11, "y": 6}}
+{"ts": "2025-12-14T20:34:17.351412Z", "event": "pick", "world_step": 40, "buyer_steps": 39, "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "pos": {"x": 11, "y": 5}}
+{"ts": "2025-12-14T20:34:19.545685Z", "event": "pick", "world_step": 51, "buyer_steps": 50, "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "remaining": 46.0, "pos": {"x": 17, "y": 4}}
+{"ts": "2025-12-14T20:34:22.753596Z", "event": "pick", "world_step": 67, "buyer_steps": 66, "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "remaining": 39.0, "pos": {"x": 17, "y": 20}}
+{"ts": "2025-12-14T20:34:24.751825Z", "event": "pick", "world_step": 77, "buyer_steps": 76, "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "remaining": 32.0, "pos": {"x": 23, "y": 20}}
+{"ts": "2025-12-14T20:34:25.143130Z", "event": "pick", "world_step": 79, "buyer_steps": 78, "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "remaining": 26.0, "pos": {"x": 23, "y": 22}}
+{"ts": "2025-12-14T20:34:25.344467Z", "event": "pick", "world_step": 80, "buyer_steps": 79, "sku": "P050", "name": "Barra de granola", "price": 5.0, "remaining": 21.0, "pos": {"x": 22, "y": 22}}
+{"ts": "2025-12-14T20:34:25.754145Z", "event": "pick", "world_step": 82, "buyer_steps": 81, "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "remaining": 13.5, "pos": {"x": 23, "y": 23}}
+{"ts": "2025-12-14T20:34:32.349701Z", "event": "pick", "world_step": 115, "buyer_steps": 114, "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "remaining": 5.5, "pos": {"x": 5, "y": 8}}
+{"ts": "2025-12-14T20:50:52.925548Z", "event": "pick", "world_step": 5, "buyer_steps": 4, "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "remaining": 111.5, "pos": {"x": 5, "y": 12}}
+{"ts": "2025-12-14T20:50:53.131338Z", "event": "pick", "world_step": 6, "buyer_steps": 5, "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "remaining": 105.0, "pos": {"x": 5, "y": 13}}
+{"ts": "2025-12-14T20:50:53.334747Z", "event": "pick", "world_step": 7, "buyer_steps": 6, "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "remaining": 97.5, "pos": {"x": 5, "y": 14}}
+{"ts": "2025-12-14T20:50:53.536689Z", "event": "pick", "world_step": 8, "buyer_steps": 7, "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "remaining": 89.5, "pos": {"x": 5, "y": 15}}
+{"ts": "2025-12-14T20:50:53.724515Z", "event": "pick", "world_step": 9, "buyer_steps": 8, "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "remaining": 85.5, "pos": {"x": 5, "y": 16}}
+{"ts": "2025-12-14T20:50:55.139018Z", "event": "pick", "world_step": 16, "buyer_steps": 15, "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "remaining": 79.5, "pos": {"x": 5, "y": 23}}
+{"ts": "2025-12-14T20:50:56.532061Z", "event": "pick", "world_step": 23, "buyer_steps": 22, "sku": "P037", "name": "Jabón de baño", "price": 6.5, "remaining": 73.0, "pos": {"x": 11, "y": 22}}
+{"ts": "2025-12-14T20:50:57.939577Z", "event": "pick", "world_step": 30, "buyer_steps": 29, "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "remaining": 66.0, "pos": {"x": 11, "y": 15}}
+{"ts": "2025-12-14T20:50:59.729092Z", "event": "pick", "world_step": 39, "buyer_steps": 38, "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "pos": {"x": 11, "y": 6}}
+{"ts": "2025-12-14T20:50:59.934673Z", "event": "pick", "world_step": 40, "buyer_steps": 39, "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "pos": {"x": 11, "y": 5}}
+{"ts": "2025-12-14T20:51:02.126664Z", "event": "pick", "world_step": 51, "buyer_steps": 50, "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "remaining": 46.0, "pos": {"x": 17, "y": 4}}
+{"ts": "2025-12-14T20:51:05.336197Z", "event": "pick", "world_step": 67, "buyer_steps": 66, "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "remaining": 39.0, "pos": {"x": 17, "y": 20}}
+{"ts": "2025-12-14T20:51:07.334786Z", "event": "pick", "world_step": 77, "buyer_steps": 76, "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "remaining": 32.0, "pos": {"x": 23, "y": 20}}
+{"ts": "2025-12-14T20:51:07.728123Z", "event": "pick", "world_step": 79, "buyer_steps": 78, "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "remaining": 26.0, "pos": {"x": 23, "y": 22}}
+{"ts": "2025-12-14T20:51:07.932542Z", "event": "pick", "world_step": 80, "buyer_steps": 79, "sku": "P050", "name": "Barra de granola", "price": 5.0, "remaining": 21.0, "pos": {"x": 22, "y": 22}}
+{"ts": "2025-12-14T20:51:08.325837Z", "event": "pick", "world_step": 82, "buyer_steps": 81, "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "remaining": 13.5, "pos": {"x": 23, "y": 23}}
+{"ts": "2025-12-14T20:51:14.932854Z", "event": "pick", "world_step": 115, "buyer_steps": 114, "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "remaining": 5.5, "pos": {"x": 5, "y": 8}}
+{"ts": "2025-12-14T20:57:53.545398Z", "event": "pick", "world_step": 5, "buyer_steps": 4, "sku": "P009", "name": "Arroz (1 kg)", "price": 8.5, "remaining": 111.5, "pos": {"x": 5, "y": 12}}
+{"ts": "2025-12-14T20:57:53.731610Z", "event": "pick", "world_step": 6, "buyer_steps": 5, "sku": "P010", "name": "Fideo (500 g)", "price": 6.5, "remaining": 105.0, "pos": {"x": 5, "y": 13}}
+{"ts": "2025-12-14T20:57:53.930731Z", "event": "pick", "world_step": 7, "buyer_steps": 6, "sku": "P011", "name": "Azúcar (1 kg)", "price": 7.5, "remaining": 97.5, "pos": {"x": 5, "y": 14}}
+{"ts": "2025-12-14T20:57:54.141395Z", "event": "pick", "world_step": 8, "buyer_steps": 7, "sku": "P012", "name": "Harina (1 kg)", "price": 8.0, "remaining": 89.5, "pos": {"x": 5, "y": 15}}
+{"ts": "2025-12-14T20:57:54.330866Z", "event": "pick", "world_step": 9, "buyer_steps": 8, "sku": "P013", "name": "Sal (1 kg)", "price": 4.0, "remaining": 85.5, "pos": {"x": 5, "y": 16}}
+{"ts": "2025-12-14T20:57:55.743061Z", "event": "pick", "world_step": 16, "buyer_steps": 15, "sku": "P034", "name": "Esponjas (pack)", "price": 6.0, "remaining": 79.5, "pos": {"x": 5, "y": 23}}
+{"ts": "2025-12-14T20:57:57.144296Z", "event": "pick", "world_step": 23, "buyer_steps": 22, "sku": "P037", "name": "Jabón de baño", "price": 6.5, "remaining": 73.0, "pos": {"x": 11, "y": 22}}
+{"ts": "2025-12-14T20:57:58.543149Z", "event": "pick", "world_step": 30, "buyer_steps": 29, "sku": "P017", "name": "Salsa de tomate", "price": 7.0, "remaining": 66.0, "pos": {"x": 11, "y": 15}}
+{"ts": "2025-12-14T20:58:00.335043Z", "event": "pick", "world_step": 39, "buyer_steps": 38, "sku": "P008", "name": "Lechuga (unidad)", "price": 6.0, "remaining": 60.0, "pos": {"x": 11, "y": 6}}
+{"ts": "2025-12-14T20:58:00.538237Z", "event": "pick", "world_step": 40, "buyer_steps": 39, "sku": "P007", "name": "Zanahoria (1 kg)", "price": 7.0, "remaining": 53.0, "pos": {"x": 11, "y": 5}}
+{"ts": "2025-12-14T20:58:02.742151Z", "event": "pick", "world_step": 51, "buyer_steps": 50, "sku": "P019", "name": "Leche (1 L)", "price": 7.0, "remaining": 46.0, "pos": {"x": 17, "y": 4}}
+{"ts": "2025-12-14T20:58:05.940414Z", "event": "pick", "world_step": 67, "buyer_steps": 66, "sku": "P041", "name": "Agua (2 L)", "price": 7.0, "remaining": 39.0, "pos": {"x": 17, "y": 20}}
+{"ts": "2025-12-14T20:58:07.945811Z", "event": "pick", "world_step": 77, "buyer_steps": 76, "sku": "P045", "name": "Galletas (paquete)", "price": 7.0, "remaining": 32.0, "pos": {"x": 23, "y": 20}}
+{"ts": "2025-12-14T20:58:08.337370Z", "event": "pick", "world_step": 79, "buyer_steps": 78, "sku": "P047", "name": "Chocolate (barra)", "price": 6.0, "remaining": 26.0, "pos": {"x": 23, "y": 22}}
+{"ts": "2025-12-14T20:58:08.532965Z", "event": "pick", "world_step": 80, "buyer_steps": 79, "sku": "P050", "name": "Barra de granola", "price": 5.0, "remaining": 21.0, "pos": {"x": 22, "y": 22}}
+{"ts": "2025-12-14T20:58:08.938235Z", "event": "pick", "world_step": 82, "buyer_steps": 81, "sku": "P048", "name": "Maní (bolsa)", "price": 7.5, "remaining": 13.5, "pos": {"x": 23, "y": 23}}
+{"ts": "2025-12-14T20:58:15.541842Z", "event": "pick", "world_step": 115, "buyer_steps": 114, "sku": "P005", "name": "Cebolla (1 kg)", "price": 8.0, "remaining": 5.5, "pos": {"x": 5, "y": 8}}
